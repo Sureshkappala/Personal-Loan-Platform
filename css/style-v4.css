@@ -336,6 +336,11 @@ header .container {
     -webkit-backdrop-filter: none !important;
   }
 
+  .drawer-overlay.active {
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+  }
+
   .hamburger {
     display: flex;
   }
