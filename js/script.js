@@ -4,6 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
+  initDashboardSidebar();
   initFaq();
   initTestimonialSlider();
   initEmiCalculators();
@@ -79,6 +80,41 @@ function initNavbar() {
       link.classList.remove('active');
     }
   });
+}
+
+function initDashboardSidebar() {
+  const menuToggle = document.getElementById('dbMobileMenuToggle');
+  const sidebar = document.querySelector('.db-sidebar');
+  const overlay = document.getElementById('dbSidebarOverlay');
+  const closeBtn = document.getElementById('dbSidebarClose');
+
+  if (menuToggle && sidebar && overlay) {
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      sidebar.classList.toggle('open');
+      overlay.classList.toggle('open');
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('open');
+      });
+    }
+
+    overlay.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('open');
+    });
+
+    const sidebarLinks = sidebar.querySelectorAll('.sidebar-link');
+    sidebarLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('open');
+      });
+    });
+  }
 }
 
 /* ==========================================================================

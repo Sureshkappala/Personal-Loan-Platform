@@ -221,10 +221,8 @@ header .container {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(11, 19, 43, 0.5);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  z-index: 1005;
+  background-color: rgba(11, 19, 43, 0.85); /* Solid overlay, no blur */
+  z-index: 1999 !important; /* Position overlay above hero/content */
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.4s ease, visibility 0.4s ease;
@@ -347,10 +345,10 @@ header .container {
     right: -340px;
     width: 320px;
     height: 100vh;
-    background-color: var(--primary-navy);
+    background-color: #0b132b !important; /* Solid background */
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.25);
     transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s ease;
-    z-index: 1010;
+    z-index: 2000 !important; /* Position menu above overlay (1999) */
     display: flex;
     flex-direction: column;
     align-items: stretch;
