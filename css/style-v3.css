@@ -351,9 +351,9 @@ header .container {
     left: auto;
     width: 320px;
     height: 100vh;
-    background-color: #121a2e !important; /* Slightly lighter navy for separation */
-    border-left: 1px solid rgba(255, 255, 255, 0.1); /* Symmetrical border border boundary */
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.25);
+    background-color: #ffffff !important; /* Clean white drawer background */
+    border-left: 1px solid #cbd5e1; /* Clear dividing border line */
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
     transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s ease;
     z-index: 2000 !important; /* Position menu above overlay (1999) */
     display: flex;
@@ -381,13 +381,16 @@ header .container {
   }
 
   .drawer-header .logo {
-    color: #ffffff;
+    color: var(--primary-navy) !important;
+  }
+  .drawer-header img {
+    filter: brightness(0.1) !important; /* Make light logo dark on white background */
   }
 
   .drawer-close {
     background: transparent;
     border: none;
-    color: #ffffff;
+    color: var(--primary-navy) !important; /* Dark close button */
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -399,7 +402,7 @@ header .container {
   }
 
   .drawer-close:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #f1f5f9 !important;
   }
 
   .drawer-search {
@@ -412,9 +415,9 @@ header .container {
     width: 100%;
     padding: 10px 14px;
     border-radius: var(--border-radius-sm);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    background-color: rgba(0, 0, 0, 0.25);
-    color: #ffffff;
+    border: 1px solid #cbd5e1 !important; /* Light border */
+    background-color: #f8fafc !important; /* Light background */
+    color: var(--primary-navy) !important; /* Dark input text */
     font-size: 0.85rem;
   }
 
@@ -431,14 +434,14 @@ header .container {
     display: inline-block !important;
     width: auto !important;
     padding: 8px 0;
-    color: rgba(255, 255, 255, 0.8) !important;
+    color: var(--primary-navy) !important; /* Dark text for light drawer */
     font-size: 1.1rem;
     position: relative;
   }
 
   .nav-menu li a:hover,
   .nav-menu li a.active {
-    color: var(--accent-gold) !important;
+    color: var(--accent-blue) !important; /* Accent blue hover state */
   }
 
   .nav-actions-mobile {
@@ -455,8 +458,12 @@ header .container {
   }
 
   .nav-actions-mobile .btn-outline {
-    border-color: rgba(255, 255, 255, 0.3);
-    color: #ffffff;
+    border-color: var(--primary-navy) !important;
+    color: var(--primary-navy) !important; /* Dark outline button */
+  }
+  .nav-actions-mobile .btn-outline:hover {
+    background-color: var(--primary-navy) !important;
+    color: #ffffff !important;
   }
 
   .nav-actions-mobile .btn-outline:hover {
