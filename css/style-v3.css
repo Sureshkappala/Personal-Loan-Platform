@@ -342,7 +342,8 @@ header .container {
   .nav-menu {
     position: fixed;
     top: 0;
-    right: -340px;
+    right: -340px; /* Slide in from right */
+    left: auto;
     width: 320px;
     height: 100vh;
     background-color: #0b132b !important; /* Solid background */
@@ -361,6 +362,7 @@ header .container {
 
   .nav-menu.active {
     right: 0;
+    left: auto;
     visibility: visible;
   }
 
@@ -420,16 +422,17 @@ header .container {
   }
 
   .nav-menu li a {
-    display: block;
-    padding: 10px 0;
+    display: inline-block !important;
+    width: auto !important;
+    padding: 8px 0;
     color: rgba(255, 255, 255, 0.8) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    font-size: 0.95rem;
+    font-size: 1.1rem;
+    position: relative;
   }
 
   .nav-menu li a:hover,
   .nav-menu li a.active {
-    color: var(--accent-teal) !important;
+    color: var(--accent-gold) !important;
   }
 
   .nav-actions-mobile {
