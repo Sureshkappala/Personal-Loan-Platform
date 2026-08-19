@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Apply online for a secure personal loan. Complete our four-step wizard to check eligibility and submit your application.">
+  <title>Apply for a Loan | Apex Loans</title>
+  <link rel="stylesheet" href="css/style.css?v=1.4">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .eligibility-banner {
+      padding: 1.25rem;
+      border-radius: var(--border-radius-sm);
+      margin-bottom: 1.5rem;
+      font-size: 0.85rem;
+      display: none;
+    }
+    .banner-approved {
+      background-color: var(--accent-teal-light);
+      border-left: 4px solid var(--accent-teal);
+      color: var(--accent-teal-hover);
+    }
+    .banner-pending {
+      background-color: #FFF9E6;
+      border-left: 4px solid var(--state-warning);
+      color: #D48C00;
+    }
+    .banner-rejected {
+      background-color: #FFEBEB;
+      border-left: 4px solid var(--state-danger);
+      color: var(--state-danger);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Drawer Overlay Backdrop -->
+  <div class="drawer-overlay"></div>
+
+  <!-- Sticky Header & Navbar -->
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo-container" style="display: inline-block;">
+        <img src="assets/images/logo.webp" alt="Stackly Logo" style="height: 32px; display: block;">
+      </a>
+      
+      <nav>
+        <ul class="nav-menu">
+          <!-- Mobile Drawer Header -->
+          <li class="drawer-header">
+            <a href="index.html" class="logo-container" style="display: inline-block; margin-bottom: 10px;">
+              <img src="assets/images/logo.webp" alt="Stackly Logo" style="height: 32px; display: block;">
+            </a>
+            <button type="button" class="drawer-close" aria-label="Close Menu">×</button>
+          </li>
+          
+          <!-- Mobile Search -->
+          <li class="drawer-search">
+            <input type="text" placeholder="Search resources..." onkeyup="if(event.key === 'Enter') { alert('Searching for: ' + this.value); }">
+          </li>
+
+          <!-- Nav Links -->
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="loans.html" class="nav-link">Loans</a></li>
+          <li><a href="apply.html" class="nav-link active">Apply Now</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+
+          <!-- Mobile Actions -->
+          <li class="nav-actions-mobile">
+            <a href="login.html" class="btn btn-outline">Login</a>
+            <a href="register.html" class="btn btn-primary">Register</a>
+          </li>
+
+          <!-- Mobile Contact Info -->
+          <li class="drawer-contact-info">
+            <h5>Customer Support</h5>
+            <p>📞 +1 (800) 555-APEX</p>
+            <p>✉️ support@apexloans.com</p>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Desktop actions -->
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline" style="padding: 0.5rem 1.25rem;">Login</a>
+        <a href="register.html" class="btn btn-primary" style="padding: 0.5rem 1.25rem;">Register</a>
+      </div>
+
+      <!-- Hamburger toggle button -->
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+  <div class="navbar-spacer"></div>
+
+  <!-- Wizard Application Container -->
+  <section class="section-padding" style="background-color: var(--neutral-light);">
+    <div class="container">
+      
+      <div class="apply-grid">
+        <!-- Left: Image & Guidance -->
+        <div class="scroll-reveal" style="background: #ffffff; border: 1px solid var(--border-color); border-radius: var(--border-radius-md); padding: 2.5rem; box-shadow: var(--shadow-sm); height: 100%; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-start;">
+          <h2 style="font-size: 1.35rem; margin-bottom: 1rem; color: var(--primary-navy);">Digital Underwriting</h2>
+          <p class="text-muted" style="font-size: 0.85rem; margin-bottom: 1.5rem; line-height: 1.6;">Fill out our secure credit check assessor to match with personal loan programs. Underwriting evaluates inputs in real-time.</p>
+          <img src="assets/images/digital_applications.webp" alt="Client completing online loan application on computer browser" loading="eager" style="width: 100%; border-radius: var(--border-radius-sm); margin-bottom: 1.5rem; box-shadow: var(--shadow-sm); height: 180px; object-fit: cover;">
+          <ul style="list-style: none; font-size: 0.8rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.75rem; padding: 0;">
+            <li>🛡️ 256-Bit SSL secured database</li>
+            <li>⏱️ Real-time eligibility assessor</li>
+            <li>📂 Save progress and complete later</li>
+          </ul>
+        </div>
+
+        <div class="wizard-container" style="margin: 0;">
+        
+        <!-- Step Indicators -->
+        <div class="wizard-steps">
+          <div class="wizard-step active">
+            <div class="step-num">1</div>
+            <div class="step-label">Eligibility</div>
+          </div>
+          <div class="wizard-step">
+            <div class="step-num">2</div>
+            <div class="step-label">Personal Details</div>
+          </div>
+          <div class="wizard-step">
+            <div class="step-num">3</div>
+            <div class="step-label">Employment</div>
+          </div>
+          <div class="wizard-step">
+            <div class="step-num">4</div>
+            <div class="step-label">Review</div>
+          </div>
+        </div>
+
+        <form id="combinedLoanForm" novalidate>
+          
+          <!-- Step 1: Eligibility Check -->
+          <div class="wizard-section active">
+            <h2 class="mb-3" style="font-size:1.25rem; color:var(--text-dark); border-bottom:1px solid var(--border-color); padding-bottom:0.5rem;">Step 1: Check Loan Eligibility</h2>
+            <p class="text-muted" style="font-size:0.85rem; margin-bottom:1.5rem;">Lenders evaluate eligibility based on age, income limits, and desired credit splits. Input parameters to see suitability.</p>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="appAge">Your Age (18-70)</label>
+                <input type="number" id="appAge" class="form-control validate-age" required placeholder="e.g. 28">
+                <span class="form-feedback"></span>
+              </div>
+              <div class="form-group">
+                <label for="appIncome">Net Monthly Take-Home Pay ($)</label>
+                <input type="number" id="appIncome" class="form-control validate-amount" required placeholder="e.g. 3500">
+                <span class="form-feedback"></span>
+              </div>
+              <div class="form-group">
+                <label for="requestedAmount">Requested Amount ($)</label>
+                <input type="number" id="requestedAmount" class="form-control validate-amount" required placeholder="e.g. 10000">
+                <span class="form-feedback"></span>
+              </div>
+              <div class="form-group">
+                <label for="appEmpType">Employment Status</label>
+                <select id="appEmpType" class="form-control" required style="background:#ffffff; height:42px;">
+                  <option value="">Select status</option>
+                  <option value="salaried">Salaried (Full-time)</option>
+                  <option value="self-employed">Self-Employed / Contractor</option>
+                  <option value="other">Unemployed / Pensioner</option>
+                </select>
+                <span class="form-feedback"></span>
+              </div>
+              <div class="form-group">
+                <label for="loanType">Loan Program Needed</label>
+                <select id="loanType" class="form-control" required style="background:#ffffff; height:42px;">
+                  <option value="">Select loan program</option>
+                  <option value="Personal Loan">Personal Loan</option>
+                  <option value="Emergency Loan">Emergency Loan</option>
+                  <option value="Education Loan">Education Loan</option>
+                  <option value="Medical Loan">Medical Loan</option>
+                  <option value="Travel Loan">Travel Loan</option>
+                  <option value="Debt Consolidation">Debt Consolidation</option>
+                </select>
+                <span class="form-feedback"></span>
+              </div>
+              <div class="form-group">
+                <label for="preferredTenure">Preferred Repayment Term</label>
+                <select id="preferredTenure" class="form-control" required style="background:#ffffff; height:42px;">
+                  <option value="">Select months</option>
+                  <option value="12">12 Months</option>
+                  <option value="24">24 Months</option>
+                  <option value="36">36 Months</option>
+                  <option value="48">48 Months</option>
+                  <option value="60">60 Months</option>
+                </select>
+                <span class="form-feedback"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Personal Details -->
+          <div class="wizard-section">
+            <h2 class="mb-3" style="font-size:1.25rem; color:var(--text-dark); border-bottom:1px solid var(--border-color); padding-bottom:0.5rem;">Step 2: Personal Information</h2>
+            
+            <!-- Eligibility Result Banner placeholder -->
+            <div id="eligibilityFeedbackBanner" class="eligibility-banner"></div>
+
+            <div class="form-grid">
+              <div class="form-group form-full">
+                <label for="appFullName">Full Name (as shown on official ID)</label>
+                <input type="text" id="appFullName" class="form-control validate-name" required placeholder="John Doe">
+                <span class="form-feedback"></span>
+              </div>
+              <div class="form-group">
+                <label for="appDob">Date of Birth</label>
+                <input type="date" id="appDob" class="form-control" required>
+                <span class="form-feedback"></span>
+              </div>
+              <div class="form-group">
+                <label for="appPhone">Mobile Phone Number</label>
+                <input type="tel" id="appPhone" class="form-control validate-tel" required placeholder="555-123-4567">
+                <span class="form-feedback"></span>
+              </div>
+              <div class="form-group form-full">
+                <label for="appEmail">Email Address</label>
+                <input type="email" id="appEmail" class="form-control" required placeholder="name@domain.com">
+                <span class="form-feedback"></span>
+              </div>
+              <div class="form-group form-full">
+                <label for="appAddress">Current Residential Address</label>
+                <input type="text" id="appAddress" class="form-control" required placeholder="Street address, Suite, City, State, ZIP code">
+                <span class="form-feedback"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Employment Details -->
+          <div class="wizard-section">
+            <h2 class="mb-3" style="font-size:1.25rem; color:var(--text-dark); border-bottom:1px solid var(--border-color); padding-bottom:0.5rem;">Step 3: Financial & Work Details</h2>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="appCompany">Employer / Business Name</label>
+                <input type="text" id="appCompany" class="form-control" placeholder="Company Name Inc.">
+                <span class="form-feedback"></span>
+              </div>
+              <div class="form-group">
+                <label for="appExperience">Job Tenure (Years)</label>
+                <input type="number" id="appExperience" class="form-control validate-amount" required placeholder="Years at current company">
+                <span class="form-feedback"></span>
+              </div>
+              <div class="form-group form-full">
+                <label for="loanPurpose">Reason for Loan (Detailed)</label>
+                <textarea id="loanPurpose" class="form-control" required rows="3" placeholder="Explain what these funds will cover..."></textarea>
+                <span class="form-feedback"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4: Summary Review -->
+          <div class="wizard-section">
+            <h2 class="mb-3" style="font-size:1.25rem; color:var(--text-dark); border-bottom:1px solid var(--border-color); padding-bottom:0.5rem;">Step 4: Review and Submit Application</h2>
+            
+            <div style="display: flex; gap: 15px; align-items: center; border: 1px solid var(--border-color); background: var(--neutral-light); padding: 1rem; border-radius: var(--border-radius-sm); margin-bottom: 1.5rem;">
+              <img src="assets/images/loan_documents.webp" alt="Verification files, paper contracts, calculator and laptop desk layout" style="width: 70px; height: 70px; border-radius: var(--border-radius-sm); object-fit: cover;" loading="lazy">
+              <div>
+                <h4 style="font-size: 0.85rem; color: var(--text-dark); margin-bottom: 0.25rem;">Verification Files Inspection</h4>
+                <p class="text-muted" style="font-size: 0.75rem; margin-bottom: 0; line-height: 1.4;">Final processing audits requires payslips, ID copy and credit statements. Please check data accuracy before submit.</p>
+              </div>
+            </div>
+
+            <div id="summaryReviewContent">
+              <!-- Dynamically populated by JS review script -->
+            </div>
+
+            <div class="auth-actions" style="margin-bottom: 1.5rem; justify-content: flex-start; display:flex; align-items:center; gap:0.5rem; font-size:0.85rem;">
+              <input type="checkbox" id="agreeTerms" required style="width:18px; height:18px;">
+              <label for="agreeTerms">
+                I certify that the information entered is accurate, and I consent to lender credit check parameters.
+              </label>
+            </div>
+          </div>
+
+          <!-- Footer Actions -->
+          <div class="wizard-footer">
+            <button type="button" id="btnPrev" class="btn btn-light">Go Back</button>
+            <button type="button" id="btnNext" class="btn btn-primary">Continue</button>
+          </div>
+
+        </form>
+
+        </div>
+      </div> <!-- Closes apply-grid -->
+    </div> <!-- Closes container -->
+  </section>
+
+  <!-- Required Documents Checklist Section -->
+  <section class="section-padding scroll-reveal" style="background-color: var(--neutral-bg); border-top: 1px solid var(--border-color);">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="mb-2">Preparation Checklist</h2>
+        <p class="text-muted" style="max-width: 600px; margin: 0 auto;">Ensure you have digital copies of these required documents to accelerate final underwriting.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem;">
+        <!-- Card 1 -->
+        <div class="scroll-reveal" style="background: #ffffff; padding: 2rem; border-radius: var(--border-radius-sm); border: 1px solid var(--border-color); text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">🪪</div>
+          <h4 style="font-size: 1rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">Proof of Identity</h4>
+          <p class="text-muted" style="font-size: 0.8rem; line-height: 1.5; margin-bottom: 0;">A valid state driver's license, government passport, or national photo ID card.</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="scroll-reveal reveal-delay-1" style="background: #ffffff; padding: 2rem; border-radius: var(--border-radius-sm); border: 1px solid var(--border-color); text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">🏠</div>
+          <h4 style="font-size: 1rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">Proof of Residence</h4>
+          <p class="text-muted" style="font-size: 0.8rem; line-height: 1.5; margin-bottom: 0;">A current utility bill (electricity, water, internet) or lease contract dated within 90 days.</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="scroll-reveal reveal-delay-2" style="background: #ffffff; padding: 2rem; border-radius: var(--border-radius-sm); border: 1px solid var(--border-color); text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">💼</div>
+          <h4 style="font-size: 1rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">Income Verification</h4>
+          <p class="text-muted" style="font-size: 0.8rem; line-height: 1.5; margin-bottom: 0;">Your last two consecutive monthly salary payslips, tax filings, or business earnings audits.</p>
+        </div>
+        <!-- Card 4 -->
+        <div class="scroll-reveal reveal-delay-3" style="background: #ffffff; padding: 2rem; border-radius: var(--border-radius-sm); border: 1px solid var(--border-color); text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">📊</div>
+          <h4 style="font-size: 1rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem;">Bank Statement</h4>
+          <p class="text-muted" style="font-size: 0.8rem; line-height: 1.5; margin-bottom: 0;">Most recent 3 months of bank account statements showing transaction logs and payroll deposits.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Application FAQ Section -->
+  <section class="section-padding scroll-reveal" style="background-color: #ffffff; border-top: 1px solid var(--border-color);">
+    <div class="container" style="max-width: 800px;">
+      <div class="text-center mb-5">
+        <h2 class="mb-2">Application FAQs</h2>
+        <p class="text-muted">Answers to questions about our underwriting checks and terms.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-header">
+            <h3>Does checking my eligibility affect my credit score?</h3>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-body">
+            <p>No. Preliminary eligibility estimations use soft credit assessment models. This query does not leave audit marks on credit reports and will not affect your credit scores.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-header">
+            <h3>How long does document audit take?</h3>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-body">
+            <p>Once you complete submissions, our digital underwriters verify documents. Standard files receive confirmation decision marks within 24 hours.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-header">
+            <h3>Am I committed to the loan once I submit?</h3>
+            <span class="faq-toggle-icon">+</span>
+          </div>
+          <div class="faq-body">
+            <p>No. Submitting this wizard is an request for offer terms. You are under no obligation to borrow until you review rates, sign terms contracts, and confirm payout coordinates.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Application Support Banner Section -->
+  <section class="section-padding scroll-reveal" style="background-color: var(--neutral-light); border-top: 1px solid var(--border-color);">
+    <div class="container text-center" style="max-width: 800px; margin: 0 auto;">
+      <div style="font-size: 2.5rem; margin-bottom: 1.5rem;">📞</div>
+      <h2 class="mb-3">Need Help with Your Application?</h2>
+      <p class="text-muted" style="margin-bottom: 2rem;">If you are experiencing issues uploading bank payslips or have questions regarding credit boundaries, our lending advisors are ready to assist you.</p>
+      <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; font-weight: 600;">
+        <span style="color: var(--primary-navy);">Call Support: <span style="color: var(--accent-blue);">+1 (800) 555-APEX</span></span>
+        <span style="color: var(--primary-navy);">Email: <span style="color: var(--accent-blue);">support@apexloans.com</span></span>
+      </div>
+      <p class="text-muted" style="font-size: 0.75rem; margin-top: 1rem; margin-bottom: 0;">Lending Help Desk Hours: Monday - Friday, 9:00 AM - 6:00 PM EST.</p>
+    </div>
+  </section>
+
+  <!-- Post-Submission Stages Section -->
+  <section class="section-padding scroll-reveal" style="background-color: #ffffff; border-top: 1px solid var(--border-color);">
+    <div class="container responsive-grid-2" style="gap: 4rem;">
+      <div style="display: flex; flex-direction: column; justify-content: center;">
+        <h2 style="font-size: 2.2rem; margin-bottom: 1rem; color: var(--primary-navy);">What Happens Next?</h2>
+        <p class="text-muted" style="line-height: 1.6; margin-bottom: 1.5rem;">Once you submit your digital credit check application, your file progresses through these standard underwriting and funding stages:</p>
+        <ul style="list-style: none; padding: 0;">
+          <li style="margin-bottom: 0.75rem; color: var(--text-muted);">📱 <strong>Stage 1: Automatic Underwriting</strong> — Credit scoring algorithms analyze details instantly.</li>
+          <li style="margin-bottom: 0.75rem; color: var(--text-muted);">📂 <strong>Stage 2: Document Audit</strong> — A lending advisor audits your bank statements and income.</li>
+          <li style="margin-bottom: 0.75rem; color: var(--text-muted);">✍️ <strong>Stage 3: Offer & Signing</strong> — Review interest rates and sign the contract via secure SMS.</li>
+          <li style="margin-bottom: 0.75rem; color: var(--text-muted);">💰 <strong>Stage 4: Direct Deposit</strong> — Funds are dispatched to your checking account within 24 hours.</li>
+        </ul>
+      </div>
+      <div>
+        <img src="assets/images/apply_process.webp" alt="Progress chart showcasing the stages of loan application verification" loading="lazy" style="width: 100%; height: 100%; min-height: 280px; border-radius: var(--border-radius-md); box-shadow: var(--shadow-md); object-fit: cover; display: block;">
+      </div>
+    </div>
+  </section>
+
+  <!-- Security & Encryption Audits Section -->
+  <section class="section-padding scroll-reveal" style="background-color: var(--neutral-light); border-top: 1px solid var(--border-color);">
+    <div class="container responsive-grid-2" style="gap: 4rem;">
+      <div>
+        <img src="assets/images/apply_security_seal.webp" alt="Security seal illustrating AES 256 encryption standards" loading="lazy" style="width: 100%; height: 100%; min-height: 280px; border-radius: var(--border-radius-md); box-shadow: var(--shadow-md); object-fit: cover; display: block;">
+      </div>
+      <div style="display: flex; flex-direction: column; justify-content: center;">
+        <h2 style="font-size: 2.2rem; margin-bottom: 1rem; color: var(--primary-navy);">Bank-Grade Security</h2>
+        <p class="text-muted" style="line-height: 1.6; margin-bottom: 1.5rem;">Your privacy is protected by multiple layers of security and data-safety protocols:</p>
+        <ul style="list-style: none; padding: 0;">
+          <li style="margin-bottom: 0.5rem; color: var(--text-muted);">🔒 <strong>AES-256 Encryption</strong>: All uploaded files and bank entries are encrypted at rest.</li>
+          <li style="margin-bottom: 0.5rem; color: var(--text-muted);">❌ <strong>Zero Broker Trading</strong>: We never sell your personal information or contact details.</li>
+          <li style="margin-bottom: 0.5rem; color: var(--text-muted);">🛡️ <strong>Regulatory Audits</strong>: Continuous system security testing keeps bank compliance metrics active.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Premium Redesigned Footer (Stackly Exact Structure) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <a href="index.html" style="display: inline-block;">
+              <img src="assets/images/logo.webp" alt="Stackly Logo" style="height: 32px; display: block;">
+            </a>
+          </div>
+          <p class="footer-desc">Mobilizing rapid exhibition coordinating systems, visitor matchmaking resources, live booth mapping grids, and custom corporate expos.</p>
+          <div class="social-links">
+            <a href="404.html" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html" class="social-link" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="404.html" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="social-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="loans.html">Loans</a></li>
+            <li><a href="apply.html">Apply Now</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Support</h3>
+          <ul class="footer-links">
+            <li><a href="contact.html">Contact Coordinates</a></li>
+            <li><a href="404.html">FAQ & Agreements</a></li>
+            <li><a href="admin.html">System Portals</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Newsletter</h3>
+          <p class="footer-desc" style="margin-bottom: 15px;">Get quarterly emergency updates, newly booked expos, and registered visitors trends reports.</p>
+          <form class="footer-newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!'); this.reset();">
+            <input type="email" class="footer-newsletter-input" placeholder="Your Email" required>
+            <button type="submit" class="footer-newsletter-btn">Join</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Stackly. All rights reserved. Designed for professional exhibition management.</p>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
+          <a href="404.html">Security Audits</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  
+  <!-- Form prefills helper -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const amt = urlParams.get('amt');
+      const type = urlParams.get('type');
+
+      if (amt && document.getElementById('requestedAmount')) {
+        document.getElementById('requestedAmount').value = amt;
+      }
+      if (type && document.getElementById('loanType')) {
+        document.getElementById('loanType').value = type;
+      }
+    });
+  </script>
+</body>
+</html>

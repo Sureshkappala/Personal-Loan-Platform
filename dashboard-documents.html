@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Borrower Document Management Console. Upload bank statements, ID copies, and address drafts securely.">
+  <title>My Documents | Apex Loans</title>
+  <link rel="stylesheet" href="css/style.css?v=1.4?v=1.4">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="dashboard-body">
+
+  <!-- Sidebar Mobile Overlay -->
+  <div class="db-sidebar-overlay" id="dbSidebarOverlay"></div>
+
+  <!-- Mobile Top Navigation Header -->
+  <header class="db-mobile-header" style="display: none;">
+    <a href="dashboard.html" style="display: inline-block;">
+      <img src="assets/images/logo.webp" alt="Stackly Logo" style="height: 28px; display: block;">
+    </a>
+    <button id="dbMobileMenuToggle" style="background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer;">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </header>
+  
+  
+
+  <div class="db-container">
+    <!-- Left Sidebar -->
+    <aside class="db-sidebar">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 2rem;">
+          <a href="dashboard.html" class="sidebar-logo" style="margin-bottom:0;">
+            <img src="assets/images/logo.webp" alt="Stackly Logo">
+          </a>
+          <button id="dbSidebarClose" style="background:none; border:none; color:#9ca3af; font-size:1.25rem; cursor:pointer; display:none;"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        
+        <div class="sidebar-section-title">Main</div>
+        <ul class="sidebar-menu">
+          <li><a href="dashboard.html" class="sidebar-link"><i class="fa-solid fa-chart-line"></i>Overview</a></li>
+          <li><a href="dashboard-apply.html" class="sidebar-link"><i class="fa-solid fa-file-invoice-dollar"></i>Apply New Loan</a></li>
+        </ul>
+
+        <div class="sidebar-section-title">Verifications</div>
+        <ul class="sidebar-menu">
+          <li><a href="dashboard-tracking.html" class="sidebar-link"><i class="fa-solid fa-route"></i>Track Submissions</a></li>
+          <li><a href="dashboard-documents.html" class="sidebar-link active"><i class="fa-solid fa-folder-open"></i>My Documents</a></li>
+        </ul>
+
+        <div class="sidebar-section-title">Settings</div>
+        <ul class="sidebar-menu">
+          <li><a href="dashboard-profile.html" class="sidebar-link"><i class="fa-solid fa-user-gear"></i>Account Profile</a></li>
+          <li><a href="dashboard-support.html" class="sidebar-link"><i class="fa-solid fa-headset"></i>Support Desk</a></li>
+        </ul>
+        <!-- Sidebar Info Card -->
+        <div style="background: rgba(255, 184, 0, 0.05); border: 1px solid rgba(255, 184, 0, 0.1); border-radius: 6px; padding: 1rem; margin-top: 2rem;">
+          <h5 style="color: var(--accent-gold); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 0.5rem 0; font-weight: 700;">Underwriting Active</h5>
+          <p style="color: #9ca3af; font-size: 0.75rem; line-height: 1.4; margin: 0;">Upload your payslips inside **My Documents** to speed up manual credit audits by 4x.</p>
+        </div>
+      </div>
+
+      <div>
+        <a href="#" class="signout-btn action-logout"><i class="fa-solid fa-right-from-bracket"></i>Sign Out</a>
+      </div>
+    </aside>
+
+    <!-- Right Main Panel -->
+    <main class="db-main">
+      <!-- Top Navigation -->
+      <div class="db-top-nav">
+        <h2 class="top-nav-title">Borrower Document Vault</h2>
+        <div class="user-profile-badge">
+          <div class="user-info">
+            <p class="user-name" id="dbUserName">Loading...</p>
+            <p class="user-role">Borrower Member</p>
+          </div>
+          <div class="user-avatar" id="dbUserAvatar">U</div>
+        </div>
+      </div>
+
+      <!-- Welcome Hero -->
+      <div class="db-welcome-hero" style="margin-top: 1rem;">
+        <h1>My Documents</h1>
+        <p style="font-size: 0.85rem; color: #9ca3af; margin-top: 0.25rem; margin-bottom: 0.5rem;">Secure Session: <strong id="dbHeroEmail" style="color: var(--accent-gold);">...</strong></p>
+        <p>Upload and manage files required to complete your underwriting evaluation.</p>
+      </div>
+
+      <!-- 2 Column Layout: Uploader and List -->
+      <div class="db-grid" style="display: grid; grid-template-columns: 1fr 1.25fr; gap: 2rem;">
+        
+        <!-- Left: Upload Box -->
+        <div style="background-color: #121824; border: 1px solid rgba(255,255,255,0.03); padding: 2rem; border-radius: 8px;">
+          <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: #fff;">Secure File Upload</h2>
+          
+          <div class="upload-area" id="dbUploadArea" style="border: 2px dashed rgba(255, 184, 0, 0.2); padding: 2.5rem; text-align: center; border-radius: 6px; background: rgba(0,0,0,0.15); cursor: pointer;">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem;">📁</div>
+            <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem; color: #fff;">Choose File or Drag Here</h3>
+            <p style="color: #6b7280; font-size: 0.75rem; margin-bottom: 0;">Supports PDF, PNG, JPEG (Max 5MB)</p>
+            <input type="file" id="dbFileInput" style="display: none;">
+          </div>
+        </div>
+
+        <!-- Right: Uploaded List -->
+        <div style="background-color: #121824; border: 1px solid rgba(255,255,255,0.03); padding: 2rem; border-radius: 8px;">
+          <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: #fff;">Active Uploads Checklist</h2>
+          
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem; text-align: left; color: #f3f4f6;">
+              <thead>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+                  <th style="padding: 10px; color: #9ca3af; font-weight: 600;">Filename</th>
+                  <th style="padding: 10px; color: #9ca3af; font-weight: 600;">Verification Status</th>
+                </tr>
+              </thead>
+              <tbody id="dbDocListBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    
+      <!-- Document Safety Guidelines -->
+      <div style="background-color: #121824; border: 1px solid rgba(255,255,255,0.03); padding: 2rem; border-radius: 8px; margin-top: 2rem;">
+        <h2 style="font-size: 1.25rem; margin-bottom: 1rem; color: #fff;">Vault Storage Security Policies</h2>
+        <p style="color: #9ca3af; font-size: 0.85rem; line-height: 1.6; margin-bottom: 0;">All verification statement copies uploaded to the Apex Loans vault are fully encrypted during transfer using SSL protocols and stored securely under AES-256 standards. Files are automatically purged from our databases 90 days after active credit terms expire.</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Validate logged-in session
+      const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
+      if (!currentUser || currentUser.role !== 'user') {
+        alert('Unauthorized access. Please login to enter the console.');
+        window.location.href = 'login.html';
+        return;
+      }
+
+      // Populate user info
+      document.getElementById('dbUserName').innerText = currentUser.name;
+      document.getElementById('dbUserAvatar').innerText = currentUser.name[0].toUpperCase();
+      if (document.getElementById('dbHeroEmail')) document.getElementById('dbHeroEmail').innerText = currentUser.email;
+
+      const uploadArea = document.getElementById('dbUploadArea');
+      const fileInput = document.getElementById('dbFileInput');
+      const docListBody = document.getElementById('dbDocListBody');
+
+      // Click to open file chooser
+      uploadArea.addEventListener('click', () => fileInput.click());
+
+      // Read documents from LocalStorage
+      const loadDocs = () => {
+        const docs = JSON.parse(localStorage.getItem('uploadedDocuments') || '[]');
+        const userDocs = docs.filter(d => d.email === currentUser.email);
+        
+        if (userDocs.length > 0) {
+          docListBody.innerHTML = userDocs.map(d => `
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+              <td style="padding: 14px 10px; color: #fff; font-weight: 500;">${d.filename}</td>
+              <td style="padding: 14px 10px;">
+                <span style="background: rgba(60, 179, 113, 0.1); color: #3cb371; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 700;">Uploaded</span>
+              </td>
+            </tr>
+          `).join('');
+        } else {
+          docListBody.innerHTML = `
+            <tr>
+              <td colspan="2" style="text-align: center; padding: 2rem 0; color: #6b7280;">No verification files uploaded yet.</td>
+            </tr>
+          `;
+        }
+      };
+
+      fileInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const filename = file.name;
+        const docs = JSON.parse(localStorage.getItem('uploadedDocuments') || '[]');
+        docs.push({
+          email: currentUser.email,
+          filename: filename
+        });
+        localStorage.setItem('uploadedDocuments', JSON.stringify(docs));
+        alert(`Successfully uploaded: ${filename}`);
+        loadDocs();
+      });
+
+      loadDocs();
+
+      // Logout handler
+      document.querySelectorAll('.action-logout').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          localStorage.removeItem('currentUser');
+          alert('Logged out successfully.');
+          window.location.href = 'login.html';
+        });
+      });
+    });
+  </script>
+
+  <script>
+    // Handle mobile hamburger dropdown toggles
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.getElementById('dbMobileMenuToggle');
+      const dropdown = document.getElementById('dbMobileDropdown');
+      if (menuToggle && dropdown) {
+        menuToggle.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (dropdown.style.display === 'none' || dropdown.style.display === '') {
+            dropdown.style.display = 'flex';
+          } else {
+            dropdown.style.display = 'none';
+          }
+        });
+        
+        // Close menu if user clicks elsewhere
+        document.addEventListener('click', () => {
+          dropdown.style.display = 'none';
+        });
+      }
+    });
+  </script>
+</body>
+</html>

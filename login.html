@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Access your Apex Loans portal. Enter your security credentials to manage applications.">
+  <title>Login | Apex Loans</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    :root {
+      --primary-dark: #0A0F1D;     /* Deep navy/charcoal background */
+      --secondary-dark: #121A2E;   /* Secondary darker navy slate */
+      --slate-blue: #1E293B;       /* Card background */
+      --accent-gold: #FFB800;      /* Warm golden yellow accent */
+      --accent-orange: #FF6B35;    /* Energetic orange accent */
+      --text-muted-light: #94A3B8;
+      --text-light-white: #F8FAFC;
+    }
+    
+    body.auth-page {
+      background: radial-gradient(circle at center, var(--secondary-dark) 0%, var(--primary-dark) 100%) !important;
+      color: var(--text-light-white) !important;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 60px 24px;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: var(--font-body), sans-serif;
+    }
+
+    .auth-card {
+      width: 100%;
+      max-width: 480px;
+      background-color: rgba(18, 25, 45, 0.65) !important;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+      padding: 40px;
+      border-radius: var(--border-radius-md);
+      transition: var(--transition-smooth);
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      box-sizing: border-box;
+    }
+
+    .auth-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .auth-header .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--text-light-white);
+      margin-bottom: 15px;
+      text-decoration: none;
+    }
+    
+    .auth-header .logo span {
+      color: var(--accent-gold);
+    }
+
+    .auth-header h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-light-white);
+    }
+
+    .auth-header p {
+      color: var(--text-muted-light);
+      font-size: 0.95rem;
+    }
+
+    .back-to-home {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      background-color: rgba(255, 255, 255, 0.05);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--border-radius-sm);
+      padding: 10px 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      z-index: 100;
+      transition: var(--transition-smooth);
+      text-decoration: none;
+    }
+
+    .back-to-home:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+      transform: translateX(-3px);
+    }
+    
+    .form-control {
+      background-color: var(--primary-dark) !important;
+      border: 1px solid var(--slate-blue) !important;
+      color: var(--text-light-white) !important;
+    }
+    .form-control:focus {
+      border-color: var(--accent-gold) !important;
+      box-shadow: 0 0 0 3px rgba(255, 184, 0, 0.15) !important;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange)) !important;
+      color: var(--primary-dark) !important;
+      border: none !important;
+      box-shadow: 0 4px 15px rgba(255, 184, 0, 0.25) !important;
+      font-weight: 700 !important;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 20px rgba(255, 184, 0, 0.35) !important;
+    }
+    
+    .form-checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .form-checkbox-group label {
+      color: rgba(255, 255, 255, 0.8) !important;
+      font-size: 0.85rem;
+      cursor: pointer;
+      user-select: none;
+      margin: 0;
+      text-transform: none !important;
+    }
+  </style>
+</head>
+<body class="auth-page">
+
+  <a href="index.html" class="back-to-home">
+    ← Back to Home
+  </a>
+
+  <div class="auth-card">
+    <div class="auth-header">
+      <a href="index.html" style="display: inline-block; margin-bottom: 15px;">
+        <img src="assets/images/logo.webp" alt="Stackly Logo" style="height: 38px; display: block; margin: 0 auto;">
+      </a>
+      <h2>Portal Access</h2>
+      <p>Login to review applications.</p>
+    </div>
+
+    <form id="portalLoginForm" novalidate>
+      <div class="form-group">
+        <label for="roleSelect" style="color: var(--text-light-white);">Access Portal As</label>
+        <select id="roleSelect" class="form-control" required style="cursor: pointer; margin-bottom: 10px;">
+          <option value="borrower">Borrower / Customer Portal</option>
+          <option value="admin">System Administrator Console</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="lEmail" style="color: var(--text-light-white);">Email Address</label>
+        <input type="email" id="lEmail" class="form-control" required placeholder="name@domain.com">
+        <span class="form-feedback"></span>
+      </div>
+
+      <div class="form-group" style="margin-bottom: 15px;">
+        <label for="lPass" style="color: var(--text-light-white);">Security Password</label>
+        <input type="password" id="lPass" class="form-control" required placeholder="••••••••">
+        <span class="form-feedback"></span>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 25px; margin-top: 10px;">
+        <div class="form-checkbox-group">
+          <input type="checkbox" id="rememberMe" style="cursor: pointer; width: auto; margin: 0;">
+          <label for="rememberMe">Remember Me</label>
+        </div>
+        <a href="404.html" style="font-size:0.85rem; color:var(--accent-gold); font-weight:600; text-decoration:none;">Forgot Password?</a>
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="width:100%; margin-top: 1rem; padding: 12px;">Verify Credentials</button>
+    </form>
+
+    <div class="text-center" style="margin-top:1.5rem; font-size:0.8rem; color:var(--text-muted-light);">
+      Don't have an account? <a href="register.html" style="font-weight:600; color:var(--accent-gold);">Register here</a>.
+    </div>
+
+    <div class="text-center" style="margin-top:1.5rem; font-size:0.75rem; color:var(--text-muted-light); border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem;">
+      Note: Use email <strong>admin@loan.com</strong> and password <strong>admin123</strong> for administrative actions.
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const loginForm = document.getElementById('portalLoginForm');
+      if (!loginForm) return;
+
+      loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const role = document.getElementById('roleSelect').value;
+        const email = document.getElementById('lEmail').value.trim();
+        const pass = document.getElementById('lPass').value.trim();
+
+        if (!email || !pass) {
+          alert('Please enter email and password');
+          return;
+        }
+
+        if (role === 'admin') {
+          if (email === 'admin@loan.com' && pass === 'admin123') {
+            localStorage.setItem('currentUser', JSON.stringify({ role: 'admin', email: 'admin@loan.com', name: 'Administrator' }));
+            alert('Welcome Administrator!');
+            window.location.href = 'admin.html';
+          } else {
+            const users = JSON.parse(localStorage.getItem('registeredUsers') || '{}');
+            const user = users[email];
+            if (user && user.password === pass && user.role === 'admin') {
+              localStorage.setItem('currentUser', JSON.stringify({ role: 'admin', email: user.email, name: user.name }));
+              alert(`Welcome back, ${user.name}!\nSuccessfully authenticated as Administrator.`);
+              window.location.href = 'admin.html';
+            } else {
+              alert('Invalid administrator credentials. Please try again.');
+            }
+          }
+        } else {
+          const users = JSON.parse(localStorage.getItem('registeredUsers') || '{}');
+          const user = users[email];
+          if (user && user.password === pass) {
+            if (user.role === 'admin') {
+              alert('This account is registered as an Administrator. Please select the correct portal role.');
+              return;
+            }
+            localStorage.setItem('currentUser', JSON.stringify({ role: 'user', email: user.email, name: user.name }));
+            alert(`Welcome back, ${user.name}!\nSuccessfully authenticated. Redirecting to your dashboard.`);
+            window.location.href = 'dashboard.html';
+          } else {
+            alert('Invalid email or password. Please try again.');
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+# Antigravity Agent & Metadata logs
+.gemini/
+.antigravity/
+.system_generated/
+*.log
+
+# OS temporary files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+.directory
+
+# Reference files and links
+reference_link.txt
+reference_links.txt
+*reference*

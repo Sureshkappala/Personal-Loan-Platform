@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Borrower Application Portal. Apply for a new personal loan program instantly.">
+  <title>Apply for a Loan | Apex Loans</title>
+  <link rel="stylesheet" href="css/style.css?v=1.4?v=1.4">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="dashboard-body">
+
+  <!-- Sidebar Mobile Overlay -->
+  <div class="db-sidebar-overlay" id="dbSidebarOverlay"></div>
+
+  <!-- Mobile Top Navigation Header -->
+  <header class="db-mobile-header" style="display: none;">
+    <a href="dashboard.html" style="display: inline-block;">
+      <img src="assets/images/logo.webp" alt="Stackly Logo" style="height: 28px; display: block;">
+    </a>
+    <button id="dbMobileMenuToggle" style="background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer;">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </header>
+  
+  
+
+  <div class="db-container">
+    <!-- Left Sidebar -->
+    <aside class="db-sidebar">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 2rem;">
+          <a href="dashboard.html" class="sidebar-logo" style="margin-bottom:0;">
+            <img src="assets/images/logo.webp" alt="Stackly Logo">
+          </a>
+          <button id="dbSidebarClose" style="background:none; border:none; color:#9ca3af; font-size:1.25rem; cursor:pointer; display:none;"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        
+        <div class="sidebar-section-title">Main</div>
+        <ul class="sidebar-menu">
+          <li><a href="dashboard.html" class="sidebar-link"><i class="fa-solid fa-chart-line"></i>Overview</a></li>
+          <li><a href="dashboard-apply.html" class="sidebar-link active"><i class="fa-solid fa-file-invoice-dollar"></i>Apply New Loan</a></li>
+        </ul>
+
+        <div class="sidebar-section-title">Verifications</div>
+        <ul class="sidebar-menu">
+          <li><a href="dashboard-tracking.html" class="sidebar-link"><i class="fa-solid fa-route"></i>Track Submissions</a></li>
+          <li><a href="dashboard-documents.html" class="sidebar-link"><i class="fa-solid fa-folder-open"></i>My Documents</a></li>
+        </ul>
+
+        <div class="sidebar-section-title">Settings</div>
+        <ul class="sidebar-menu">
+          <li><a href="dashboard-profile.html" class="sidebar-link"><i class="fa-solid fa-user-gear"></i>Account Profile</a></li>
+          <li><a href="dashboard-support.html" class="sidebar-link"><i class="fa-solid fa-headset"></i>Support Desk</a></li>
+        </ul>
+        <!-- Sidebar Info Card -->
+        <div style="background: rgba(255, 184, 0, 0.05); border: 1px solid rgba(255, 184, 0, 0.1); border-radius: 6px; padding: 1rem; margin-top: 2rem;">
+          <h5 style="color: var(--accent-gold); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 0.5rem 0; font-weight: 700;">Underwriting Active</h5>
+          <p style="color: #9ca3af; font-size: 0.75rem; line-height: 1.4; margin: 0;">Upload your payslips inside **My Documents** to speed up manual credit audits by 4x.</p>
+        </div>
+      </div>
+
+      <div>
+        <a href="#" class="signout-btn action-logout"><i class="fa-solid fa-right-from-bracket"></i>Sign Out</a>
+      </div>
+    </aside>
+
+    <!-- Right Main Panel -->
+    <main class="db-main">
+      <!-- Top Navigation -->
+      <div class="db-top-nav">
+        <h2 class="top-nav-title">Borrower Application Portal</h2>
+        <div class="user-profile-badge">
+          <div class="user-info">
+            <p class="user-name" id="dbUserName">Loading...</p>
+            <p class="user-role">Borrower Member</p>
+          </div>
+          <div class="user-avatar" id="dbUserAvatar">U</div>
+        </div>
+      </div>
+
+      <!-- Welcome Hero -->
+      <div class="db-welcome-hero" style="margin-top: 1rem;">
+        <h1>Apply for Credit</h1>
+        <p style="font-size: 0.85rem; color: #9ca3af; margin-top: 0.25rem; margin-bottom: 0.5rem;">Secure Session: <strong id="dbHeroEmail" style="color: var(--accent-gold);">...</strong></p>
+        <p>Complete your pre-qualification details to request new loan terms. Underwriting processes inputs in real-time.</p>
+      </div>
+
+      <!-- Split Layout: Form & Eligibility Info -->
+      <div class="db-grid" style="display: grid; grid-template-columns: 1.35fr 1fr; gap: 2rem; align-items: start;">
+        <div style="background-color: #121824; border: 1px solid rgba(255,255,255,0.03); padding: 2.5rem; border-radius: 8px;">
+        <form id="dbLoanApplyForm" novalidate>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+            <div class="form-group">
+              <label for="applyProgram" style="color: #fff; display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem;">Loan Program Needed</label>
+              <select id="applyProgram" class="form-control" required style="background: #0b0f17; color: #fff; border: 1px solid rgba(255,255,255,0.1); width: 100%; padding: 12px; border-radius: 4px;">
+                <option value="Personal Loan">Personal Loan</option>
+                <option value="Debt Consolidation">Debt Consolidation</option>
+                <option value="Emergency Medical">Emergency Medical</option>
+                <option value="Home Improvement">Home Improvement</option>
+                <option value="Business Loan">Business Loan</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="applyAmount" style="color: #fff; display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem;">Requested Amount ($)</label>
+              <input type="number" id="applyAmount" class="form-control" required placeholder="e.g. 15000" style="background: #0b0f17; color: #fff; border: 1px solid rgba(255,255,255,0.1); width: 100%; padding: 12px; border-radius: 4px;">
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+            <div class="form-group">
+              <label for="applyTerm" style="color: #fff; display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem;">Repayment Term (Months)</label>
+              <select id="applyTerm" class="form-control" required style="background: #0b0f17; color: #fff; border: 1px solid rgba(255,255,255,0.1); width: 100%; padding: 12px; border-radius: 4px;">
+                <option value="12">12 Months</option>
+                <option value="24">24 Months</option>
+                <option value="36">36 Months</option>
+                <option value="48">48 Months</option>
+                <option value="60">60 Months</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="applyIncome" style="color: #fff; display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem;">Net Monthly Take-Home Pay ($)</label>
+              <input type="number" id="applyIncome" class="form-control" required placeholder="e.g. 4500" style="background: #0b0f17; color: #fff; border: 1px solid rgba(255,255,255,0.1); width: 100%; padding: 12px; border-radius: 4px;">
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+            <div class="form-group">
+              <label for="applyEmployment" style="color: #fff; display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem;">Employment Status</label>
+              <select id="applyEmployment" class="form-control" required style="background: #0b0f17; color: #fff; border: 1px solid rgba(255,255,255,0.1); width: 100%; padding: 12px; border-radius: 4px;">
+                <option value="Employed">Employed (Full-Time)</option>
+                <option value="Part-Time">Employed (Part-Time)</option>
+                <option value="Self-Employed">Self-Employed / Contractor</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="applyAge" style="color: #fff; display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem;">Your Age</label>
+              <input type="number" id="applyAge" class="form-control" required placeholder="e.g. 28" style="background: #0b0f17; color: #fff; border: 1px solid rgba(255,255,255,0.1); width: 100%; padding: 12px; border-radius: 4px;">
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px; font-weight: 700;">Submit Loan Application</button>
+        </form>
+      </div>
+      <div style="background-color: #121824; border: 1px solid rgba(255,255,255,0.03); padding: 2rem; border-radius: 8px;">
+        <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: #fff;">Eligibility Requirements</h2>
+        <p style="color: #9ca3af; font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.5rem;">To expedite manual underwriting evaluations, please verify the baseline benchmarks below:</p>
+        <ul style="list-style: none; padding: 0; font-size: 0.85rem; display: flex; flex-direction: column; gap: 15px;">
+          <li style="display:flex; gap:10px;"><span style="color:var(--accent-gold);">✓</span> 📁 Government-issued Photo ID</li>
+          <li style="display:flex; gap:10px;"><span style="color:var(--accent-gold);">✓</span> 💼 Last 2 months income statements</li>
+          <li style="display:flex; gap:10px;"><span style="color:var(--accent-gold);">✓</span> 📈 Baseline credit score (600+)</li>
+          <li style="display:flex; gap:10px;"><span style="color:var(--accent-gold);">✓</span> 🏦 Active checking account logs</li>
+        </ul>
+      </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Validate logged-in session
+      const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
+      if (!currentUser || currentUser.role !== 'user') {
+        alert('Unauthorized access. Please login to enter the console.');
+        window.location.href = 'login.html';
+        return;
+      }
+
+      // Populate user info
+      document.getElementById('dbUserName').innerText = currentUser.name;
+      document.getElementById('dbUserAvatar').innerText = currentUser.name[0].toUpperCase();
+      if (document.getElementById('dbHeroEmail')) document.getElementById('dbHeroEmail').innerText = currentUser.email;
+
+      const form = document.getElementById('dbLoanApplyForm');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const program = document.getElementById('applyProgram').value;
+        const amount = document.getElementById('applyAmount').value.trim();
+        const term = document.getElementById('applyTerm').value;
+        const income = document.getElementById('applyIncome').value.trim();
+        const employment = document.getElementById('applyEmployment').value;
+        const age = document.getElementById('applyAge').value.trim();
+
+        if (!amount || !income || !age) {
+          alert('Please fill out all inputs.');
+          return;
+        }
+
+        if (Number(amount) <= 0 || Number(income) <= 0 || Number(age) <= 0) {
+          alert('Values must be positive numbers.');
+          return;
+        }
+
+        // Add mock application to localStorage database
+        const apps = JSON.parse(localStorage.getItem('loanApplications') || '[]');
+        const newApp = {
+          id: 'APX-' + Math.floor(100000 + Math.random() * 900000),
+          name: currentUser.name,
+          email: currentUser.email,
+          program: program,
+          amount: Number(amount),
+          term: Number(term),
+          income: Number(income),
+          employment: employment,
+          age: Number(age),
+          status: 'Pending', // Awaiting admin action
+          date: new Date().toLocaleDateString()
+        };
+        apps.push(newApp);
+        localStorage.setItem('loanApplications', JSON.stringify(apps));
+
+        alert('Application successfully submitted! Redirecting to Overview to track milestones.');
+        window.location.href = 'dashboard.html';
+      });
+
+      // Logout handler
+      document.querySelectorAll('.action-logout').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          localStorage.removeItem('currentUser');
+          alert('Logged out successfully.');
+          window.location.href = 'login.html';
+        });
+      });
+    });
+  </script>
+
+  <script>
+    // Handle mobile hamburger dropdown toggles
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.getElementById('dbMobileMenuToggle');
+      const dropdown = document.getElementById('dbMobileDropdown');
+      if (menuToggle && dropdown) {
+        menuToggle.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (dropdown.style.display === 'none' || dropdown.style.display === '') {
+            dropdown.style.display = 'flex';
+          } else {
+            dropdown.style.display = 'none';
+          }
+        });
+        
+        // Close menu if user clicks elsewhere
+        document.addEventListener('click', () => {
+          dropdown.style.display = 'none';
+        });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Get in touch with our customer support. Send a message, view our office hours, or find our location map details.">
+  <title>Contact Us | Apex Loans</title>
+  <link rel="stylesheet" href="css/style.css?v=1.4">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-dark: #0A0F1D;     /* Deep navy/charcoal background */
+      --secondary-dark: #121A2E;   /* Secondary darker navy slate */
+      --slate-blue: #1E293B;       /* Card background */
+      --accent-gold: #FFB800;      /* Warm golden yellow accent */
+      --accent-orange: #FF6B35;    /* Energetic orange accent */
+      --text-muted-light: #94A3B8;
+      --text-light-white: #F8FAFC;
+    }
+    
+    body.dark-nav {
+      background-color: var(--primary-dark) !important;
+      color: var(--text-light-white) !important;
+      font-family: var(--font-body), sans-serif;
+    }
+
+    /* Force dark navbar for interior contact page */
+    body.dark-nav header {
+      background-color: var(--primary-dark) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    }
+    body.dark-nav header.scrolled {
+      background-color: rgba(10, 15, 29, 0.95) !important;
+    }
+    body.dark-nav header .logo, body.dark-nav header .nav-link {
+      color: var(--text-light-white) !important;
+    }
+    body.dark-nav header .btn-outline {
+      border-color: rgba(255, 255, 255, 0.2) !important;
+      color: var(--text-light-white) !important;
+    }
+    body.dark-nav header .hamburger span {
+      background-color: var(--text-light-white) !important;
+    }
+    
+    .section-padding {
+      background-color: var(--primary-dark) !important;
+    }
+    
+    .contact-info-card, .contact-form-container {
+      background-color: var(--secondary-dark) !important;
+      border: 1px solid rgba(255, 255, 255, 0.05) !important;
+      box-shadow: var(--shadow-lg) !important;
+    }
+    
+    .map-placeholder {
+      background-color: var(--primary-dark) !important;
+      border: 1px solid var(--slate-blue) !important;
+      color: var(--text-light-white) !important;
+    }
+    
+    .form-control {
+      background-color: var(--primary-dark) !important;
+      border: 1px solid var(--slate-blue) !important;
+      color: var(--text-light-white) !important;
+    }
+    .form-control:focus {
+      border-color: var(--accent-gold) !important;
+      box-shadow: 0 0 0 3px rgba(255, 184, 0, 0.15) !important;
+    }
+    
+    h1, h2, h3, h4, h5, h6, strong, p a {
+      color: var(--text-light-white) !important;
+    }
+    .text-muted, p {
+      color: var(--text-muted-light) !important;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange)) !important;
+      color: var(--primary-dark) !important;
+      border: none !important;
+      box-shadow: 0 4px 15px rgba(255, 184, 0, 0.25) !important;
+      font-weight: 700 !important;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 20px rgba(255, 184, 0, 0.35) !important;
+    }
+    
+    .btn-outline {
+      border: 2px solid var(--slate-blue) !important;
+      color: var(--text-light-white) !important;
+    }
+    .btn-outline:hover {
+      background-color: var(--slate-blue) !important;
+    }
+
+    /* Stackly Responsive Grid styles */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    @media (min-width: 992px) {
+      .contact-grid {
+        grid-template-columns: 1.25fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="dark-nav">
+
+  <!-- Drawer Overlay Backdrop -->
+  <div class="drawer-overlay"></div>
+
+  <!-- Sticky Header & Navbar -->
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo-container" style="display: inline-block;">
+        <img src="assets/images/logo.webp" alt="Stackly Logo" style="height: 32px; display: block;">
+      </a>
+      
+      <nav>
+        <ul class="nav-menu">
+          <!-- Mobile Drawer Header -->
+          <li class="drawer-header">
+            <a href="index.html" class="logo-container" style="display: inline-block; margin-bottom: 10px;">
+              <img src="assets/images/logo.webp" alt="Stackly Logo" style="height: 32px; display: block;">
+            </a>
+            <button type="button" class="drawer-close" aria-label="Close Menu">×</button>
+          </li>
+          
+          <!-- Mobile Search -->
+          <li class="drawer-search">
+            <input type="text" placeholder="Search resources..." onkeyup="if(event.key === 'Enter') { alert('Searching for: ' + this.value); }">
+          </li>
+
+          <!-- Nav Links -->
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="loans.html" class="nav-link">Loans</a></li>
+          <li><a href="apply.html" class="nav-link">Apply Now</a></li>
+          <li><a href="contact.html" class="nav-link active">Contact</a></li>
+
+          <!-- Mobile Actions -->
+          <li class="nav-actions-mobile">
+            <a href="login.html" class="btn btn-outline">Login</a>
+            <a href="register.html" class="btn btn-primary">Register</a>
+          </li>
+
+          <!-- Mobile Contact Info -->
+          <li class="drawer-contact-info">
+            <h5>Customer Support</h5>
+            <p>📞 +1 (800) 555-APEX</p>
+            <p>✉️ support@apexloans.com</p>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Desktop actions -->
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline" style="padding: 0.5rem 1.25rem;">Login</a>
+        <a href="register.html" class="btn btn-primary" style="padding: 0.5rem 1.25rem;">Register</a>
+      </div>
+
+      <!-- Hamburger toggle button -->
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+  <div class="navbar-spacer"></div>
+
+  <!-- Interior Banner (Stackly Exact Structure) -->
+  <section class="interior-banner" style="background: linear-gradient(135deg, var(--secondary-dark), var(--primary-dark)); color: var(--text-light-white); padding: 5rem 0 4.5rem 0; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">
+    <div class="container animate-fade-up">
+      <h1 style="font-size: 3.25rem; margin-bottom: 10px; color: var(--text-light-white); font-weight:800;">Contact Us</h1>
+      <div class="breadcrumbs" style="display: flex; justify-content: center; gap: 8px; font-size: 0.95rem; opacity: 0.8;">
+        <a href="index.html" style="color: var(--text-light-white); text-decoration: none;">Home</a> / <span style="color: var(--accent-gold);">Contact</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Grid -->
+  <section class="section-padding" style="background-color: var(--primary-dark);">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Details & Map Card (Stackly Info Card Layout) -->
+        <div class="contact-info-card" style="background-color: var(--secondary-dark); padding: 40px; border-radius: var(--border-radius-md); border: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; justify-content: space-between; box-shadow: var(--shadow-lg);">
+          <div>
+            <h2 style="font-size: 1.5rem; margin-bottom: 2rem; color: var(--text-light-white);">Get in Touch</h2>
+            <ul style="list-style: none; padding: 0;">
+              <li style="display: flex; gap: 15px; margin-bottom: 30px; align-items: flex-start;">
+                <div style="font-size: 1.5rem; color: var(--accent-gold);">📍</div>
+                <div>
+                  <h4 style="font-size: 1.05rem; color: var(--text-light-white); margin-bottom: 5px; font-weight:600;">Office Address</h4>
+                  <p style="color: var(--text-muted-light); margin: 0; font-size: 0.95rem;">451 Plaza Boulevard, Suite 200, New York, NY 10016</p>
+                </div>
+              </li>
+              <li style="display: flex; gap: 15px; margin-bottom: 30px; align-items: flex-start;">
+                <div style="font-size: 1.5rem; color: var(--accent-gold);">📞</div>
+                <div>
+                  <h4 style="font-size: 1.05rem; color: var(--text-light-white); margin-bottom: 5px; font-weight:600;">Phone Support</h4>
+                  <p style="color: var(--text-muted-light); margin: 0; font-size: 0.95rem;"><a href="tel:+18005552739" style="color: var(--text-light-white); text-decoration: none;">+1 (800) 555-APEX</a> (Toll-Free)</p>
+                </div>
+              </li>
+              <li style="display: flex; gap: 15px; margin-bottom: 30px; align-items: flex-start;">
+                <div style="font-size: 1.5rem; color: var(--accent-gold);">✉️</div>
+                <div>
+                  <h4 style="font-size: 1.05rem; color: var(--text-light-white); margin-bottom: 5px; font-weight:600;">Email Inquiry</h4>
+                  <p style="color: var(--text-muted-light); margin: 0; font-size: 0.95rem;"><a href="mailto:support@apexloans.com" style="color: var(--text-light-white); text-decoration: none;">support@apexloans.com</a></p>
+                </div>
+              </li>
+              <li style="display: flex; gap: 15px; margin-bottom: 30px; align-items: flex-start;">
+                <div style="font-size: 1.5rem; color: var(--accent-gold);">🕒</div>
+                <div>
+                  <h4 style="font-size: 1.05rem; color: var(--text-light-white); margin-bottom: 5px; font-weight:600;">Operating Hours</h4>
+                  <p style="color: var(--text-muted-light); margin: 0; font-size: 0.95rem;">Monday - Friday: 9:00 AM - 6:00 PM EST</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Embedded Map Container matching Reference Design -->
+          <div class="map-container" style="position: relative; border-radius: var(--border-radius-md); overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: var(--shadow-sm); aspect-ratio: 16/9; width: 100%; height: 260px; margin-top: 30px;">
+            <img src="assets/images/dark_map_mockup.jpg" alt="HQ Location Map" style="width: 100%; height: 100%; object-fit: cover;">
+            <a href="404.html" style="position: absolute; top: 12px; left: 12px; background-color: rgba(10, 25, 47, 0.85); border: 1px solid var(--accent-gold); border-radius: var(--border-radius-sm); padding: 6px 12px; font-size: 0.75rem; color: white; display: flex; align-items: center; gap: 6px; font-weight: 600; text-decoration: none; transition: var(--transition-fast);">
+              <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: var(--accent-gold);"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              <span>Open in Maps</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact Form Container -->
+        <div class="contact-form-container" style="background-color: var(--secondary-dark); padding: 40px; border-radius: var(--border-radius-md); border: 1px solid rgba(255,255,255,0.05); box-shadow: var(--shadow-lg);">
+          <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-light-white);">Send a Message</h2>
+          <form id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="cName" style="color: var(--text-light-white);">Full Name</label>
+              <input type="text" id="cName" class="form-control validate-name" required placeholder="Your Full Name">
+              <span class="form-feedback"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="cEmail" style="color: var(--text-light-white);">Email Address</label>
+              <input type="email" id="cEmail" class="form-control" required placeholder="yourname@email.com">
+              <span class="form-feedback"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="cPhone" style="color: var(--text-light-white);">Phone Number</label>
+              <input type="tel" id="cPhone" class="form-control validate-phone" required placeholder="10-Digit Mobile">
+              <span class="form-feedback"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="cSubject" style="color: var(--text-light-white);">Subject / Topic</label>
+              <input type="text" id="cSubject" class="form-control" required placeholder="What can we help you with?">
+              <span class="form-feedback"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="cMessage" style="color: var(--text-light-white);">Detailed Query</label>
+              <textarea id="cMessage" class="form-control" required rows="4" placeholder="Enter message details..."></textarea>
+              <span class="form-feedback"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem; padding: 12px; font-weight:700;">Submit Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Premium Redesigned Footer (Stackly Exact Structure) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <a href="index.html" style="display: inline-block;">
+              <img src="assets/images/logo.webp" alt="Stackly Logo" style="height: 32px; display: block;">
+            </a>
+          </div>
+          <p class="footer-desc">Mobilizing rapid exhibition coordinating systems, visitor matchmaking resources, live booth mapping grids, and custom corporate expos.</p>
+          <div class="social-links">
+            <a href="404.html" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html" class="social-link" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="404.html" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="social-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="loans.html">Loans</a></li>
+            <li><a href="apply.html">Apply Now</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Support</h3>
+          <ul class="footer-links">
+            <li><a href="contact.html">Contact Coordinates</a></li>
+            <li><a href="404.html">FAQ & Agreements</a></li>
+            <li><a href="admin.html">System Portals</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Newsletter</h3>
+          <p class="footer-desc" style="margin-bottom: 15px;">Get quarterly emergency updates, newly booked expos, and registered visitors trends reports.</p>
+          <form class="footer-newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!'); this.reset();">
+            <input type="email" class="footer-newsletter-input" placeholder="Your Email" required>
+            <button type="submit" class="footer-newsletter-btn">Join</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Stackly. All rights reserved. Designed for professional exhibition management.</p>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
+          <a href="404.html">Security Audits</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create a secure Apex Loans borrower account. Manage applications, upload details and calculate interest limits.">
+  <title>Register Account | Apex Loans</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    :root {
+      --primary-dark: #0A0F1D;     /* Deep navy/charcoal background */
+      --secondary-dark: #121A2E;   /* Secondary darker navy slate */
+      --slate-blue: #1E293B;       /* Card background */
+      --accent-gold: #FFB800;      /* Warm golden yellow accent */
+      --accent-orange: #FF6B35;    /* Energetic orange accent */
+      --text-muted-light: #94A3B8;
+      --text-light-white: #F8FAFC;
+    }
+    
+    body.auth-page {
+      background: radial-gradient(circle at center, var(--secondary-dark) 0%, var(--primary-dark) 100%) !important;
+      color: var(--text-light-white) !important;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 60px 24px;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: var(--font-body), sans-serif;
+    }
+
+    .auth-card {
+      width: 100%;
+      max-width: 480px;
+      background-color: rgba(18, 25, 45, 0.65) !important;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+      padding: 40px;
+      border-radius: var(--border-radius-md);
+      transition: var(--transition-smooth);
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      box-sizing: border-box;
+    }
+
+    .auth-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .auth-header .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--text-light-white);
+      margin-bottom: 15px;
+      text-decoration: none;
+    }
+    
+    .auth-header .logo span {
+      color: var(--accent-gold);
+    }
+
+    .auth-header h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-light-white);
+    }
+
+    .auth-header p {
+      color: var(--text-muted-light);
+      font-size: 0.95rem;
+    }
+
+    .back-to-home {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      background-color: rgba(255, 255, 255, 0.05);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--border-radius-sm);
+      padding: 10px 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      z-index: 100;
+      transition: var(--transition-smooth);
+      text-decoration: none;
+    }
+
+    .back-to-home:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+      transform: translateX(-3px);
+    }
+    
+    .form-control {
+      background-color: var(--primary-dark) !important;
+      border: 1px solid var(--slate-blue) !important;
+      color: var(--text-light-white) !important;
+    }
+    .form-control:focus {
+      border-color: var(--accent-gold) !important;
+      box-shadow: 0 0 0 3px rgba(255, 184, 0, 0.15) !important;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange)) !important;
+      color: var(--primary-dark) !important;
+      border: none !important;
+      box-shadow: 0 4px 15px rgba(255, 184, 0, 0.25) !important;
+      font-weight: 700 !important;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 20px rgba(255, 184, 0, 0.35) !important;
+    }
+    
+    .form-checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .form-checkbox-group label {
+      color: rgba(255, 255, 255, 0.8) !important;
+      font-size: 0.85rem;
+      cursor: pointer;
+      user-select: none;
+      margin: 0;
+      text-transform: none !important;
+    }
+  </style>
+</head>
+<body class="auth-page">
+
+  <a href="index.html" class="back-to-home">
+    ← Back to Home
+  </a>
+
+  <div class="auth-card">
+    <div class="auth-header">
+      <a href="index.html" style="display: inline-block; margin-bottom: 15px;">
+        <img src="assets/images/logo.webp" alt="Stackly Logo" style="height: 38px; display: block; margin: 0 auto;">
+      </a>
+      <h2>Create Account</h2>
+      <p>Register to start your loan application.</p>
+    </div>
+
+    <form id="portalRegisterForm" novalidate>
+      <div class="form-group">
+        <label for="roleSelect" style="color: var(--text-light-white);">Register Profile As</label>
+        <select id="roleSelect" class="form-control" required style="cursor: pointer; margin-bottom: 10px;">
+          <option value="borrower">Borrower / Customer Portal</option>
+          <option value="admin">System Administrator Console</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="rName" style="color: var(--text-light-white);">Full Name</label>
+        <input type="text" id="rName" class="form-control validate-name" required placeholder="John Doe">
+        <span class="form-feedback"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="rEmail" style="color: var(--text-light-white);">Email Address</label>
+        <input type="email" id="rEmail" class="form-control" required placeholder="name@domain.com">
+        <span class="form-feedback"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="rPhone" style="color: var(--text-light-white);">Mobile Number</label>
+        <input type="tel" id="rPhone" class="form-control validate-phone" required placeholder="10-Digit Mobile">
+        <span class="form-feedback"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="rPass" style="color: var(--text-light-white);">Create Password</label>
+        <input type="password" id="rPass" class="form-control" required placeholder="At least 6 characters">
+        <span class="form-feedback"></span>
+      </div>
+
+      <div class="form-group" style="margin-bottom: 15px;">
+        <label for="rConfirmPass" style="color: var(--text-light-white);">Confirm Password</label>
+        <input type="password" id="rConfirmPass" class="form-control" required placeholder="Re-enter password">
+        <span class="form-feedback"></span>
+      </div>
+
+      <div class="form-checkbox-group" style="margin-bottom: 25px; margin-top: 10px;">
+        <input type="checkbox" id="rTerms" required style="cursor: pointer; width: auto; margin: 0;">
+        <label for="rTerms">I agree to the <a href="404.html" style="color: var(--accent-gold); font-weight: 600; text-decoration: none;">Terms & Conditions</a> and <a href="404.html" style="color: var(--accent-gold); font-weight: 600; text-decoration: none;">Privacy Policy</a></label>
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="width:100%; margin-top: 1rem; padding: 12px;">Register Account</button>
+    </form>
+
+    <div class="text-center" style="margin-top:1.5rem; font-size:0.8rem; color:var(--text-muted-light);">
+      Already have an account? <a href="login.html" style="font-weight:600; color:var(--accent-gold);">Login here</a>.
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const regForm = document.getElementById('portalRegisterForm');
+      if (!regForm) return;
+
+      regForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // Run validation helper from script.js
+        if (typeof validateForm === 'function' && !validateForm(regForm)) {
+          return;
+        }
+
+        const termsChecked = document.getElementById('rTerms').checked;
+        if (!termsChecked) {
+          alert('You must agree to the Terms & Conditions and Privacy Policy to register.');
+          return;
+        }
+
+        const role = document.getElementById('roleSelect').value;
+        const name = document.getElementById('rName').value.trim();
+        const email = document.getElementById('rEmail').value.trim();
+        const phone = document.getElementById('rPhone').value.trim();
+        const pass = document.getElementById('rPass').value.trim();
+        const confirmPass = document.getElementById('rConfirmPass').value.trim();
+
+        if (pass.length < 6) {
+          alert('Password must be at least 6 characters.');
+          return;
+        }
+
+        if (pass !== confirmPass) {
+          alert('Passwords do not match.');
+          return;
+        }
+
+        // Store credentials
+        const existingUsers = JSON.parse(localStorage.getItem('registeredUsers') || '{}');
+        existingUsers[email] = { name, email, phone, password: pass, role: role };
+        localStorage.setItem('registeredUsers', JSON.stringify(existingUsers));
+
+        alert('Account successfully registered! Please login to continue.');
+        window.location.href = 'login.html';
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Apex Loans Administrator Console. Manage incoming loan applications and check dashboard analytics.">
+  <title>Admin Metrics | Apex Loans</title>
+  <link rel="stylesheet" href="css/style.css?v=1.4?v=1.4">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="dashboard-body">
+
+  <!-- Sidebar Mobile Overlay -->
+  <div class="db-sidebar-overlay" id="dbSidebarOverlay"></div>
+
+  <!-- Mobile Top Navigation Header -->
+  <header class="db-mobile-header" style="display: none;">
+    <a href="admin.html" style="display: inline-block;">
+      <img src="assets/images/logo.webp" alt="Stackly Logo" style="height: 28px; display: block;">
+    </a>
+    <button id="dbMobileMenuToggle" style="background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer;">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </header>
+  
+  
+
+  <div class="db-container">
+    <!-- Left Sidebar -->
+    <aside class="db-sidebar">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 2rem;">
+          <a href="admin.html" class="sidebar-logo" style="margin-bottom:0;">
+            <img src="assets/images/logo.webp" alt="Stackly Logo">
+          </a>
+          <button id="dbSidebarClose" style="background:none; border:none; color:#9ca3af; font-size:1.25rem; cursor:pointer; display:none;"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        
+        <div class="sidebar-section-title">Main</div>
+        <ul class="sidebar-menu">
+          <li><a href="admin.html" class="sidebar-link active"><i class="fa-solid fa-chart-line"></i>Overview Metrics</a></li>
+          <li><a href="admin-applications.html" class="sidebar-link"><i class="fa-solid fa-file-invoice-dollar"></i>Applications Panel</a></li>
+        </ul>
+
+        <div class="sidebar-section-title">User Queries</div>
+        <ul class="sidebar-menu">
+          <li><a href="admin-messages.html" class="sidebar-link"><i class="fa-solid fa-envelope-open-text"></i>Contact Inbox</a></li>
+        </ul>
+
+        <div class="sidebar-section-title">Settings</div>
+        <ul class="sidebar-menu">
+          <li><a href="admin-settings.html" class="sidebar-link"><i class="fa-solid fa-sliders"></i>Console Settings</a></li>
+        </ul>
+        <!-- Sidebar Info Card -->
+        <div style="background: rgba(96, 165, 250, 0.05); border: 1px solid rgba(96, 165, 250, 0.1); border-radius: 6px; padding: 1rem; margin-top: 2rem;">
+          <h5 style="color: #60a5fa; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 0.5rem 0; font-weight: 700;">Admin Console Status</h5>
+          <p style="color: #9ca3af; font-size: 0.75rem; line-height: 1.4; margin: 0;">Database: **Active (SSL)**. Monitoring credit request logs in real-time.</p>
+        </div>
+      </div>
+
+      <div>
+        <a href="#" class="signout-btn action-logout"><i class="fa-solid fa-right-from-bracket"></i>Sign Out</a>
+      </div>
+    </aside>
+
+    <!-- Right Main Panel -->
+    <main class="db-main">
+      <!-- Top Navigation -->
+      <div class="db-top-nav">
+        <h2 class="top-nav-title">Administration Dashboard</h2>
+        <div class="user-profile-badge">
+          <div class="user-info">
+            <p class="user-name" id="dbUserName">Administrator</p>
+            <p class="user-role">System Admin Console</p>
+          </div>
+          <div class="user-avatar" id="dbUserAvatar">A</div>
+        </div>
+      </div>
+
+      <!-- Welcome Hero -->
+      <div class="db-welcome-hero" style="margin-top: 1rem;">
+        <h1>Admin Control Room</h1>
+        <p style="font-size: 0.85rem; color: #9ca3af; margin-top: 0.25rem; margin-bottom: 0.5rem;">Operator Session: <strong id="dbHeroEmail" style="color: #60a5fa;">...</strong></p>
+        <p>Review total portfolios, evaluate risk ratios, and manage borrower applications.</p>
+      </div>
+
+      <!-- Admin Stats Grid -->
+      <div class="db-stats-row">
+        <div class="db-stat-card">
+          <div>
+            <div class="db-stat-label">Total Applications</div>
+            <p class="db-stat-value" id="adminTotalApps">0</p>
+          </div>
+          <div class="db-stat-icon">📂</div>
+        </div>
+
+        <div class="db-stat-card">
+          <div>
+            <div class="db-stat-label">Pending Underwrite</div>
+            <p class="db-stat-value" id="adminPendingApps">0</p>
+          </div>
+          <div class="db-stat-icon" style="background: rgba(255, 184, 0, 0.1); color: var(--accent-gold);">⏳</div>
+        </div>
+
+        <div class="db-stat-card">
+          <div>
+            <div class="db-stat-label">Approved Portfolios</div>
+            <p class="db-stat-value" id="adminApprovedApps">0</p>
+          </div>
+          <div class="db-stat-icon" style="background: rgba(60, 179, 113, 0.1); color: #3cb371;">✓</div>
+        </div>
+
+        <div class="db-stat-card">
+          <div>
+            <div class="db-stat-label">Outstanding Principal</div>
+            <p class="db-stat-value" id="adminOutstandingAmt">$0</p>
+          </div>
+          <div class="db-stat-icon" style="background: rgba(96, 165, 250, 0.1); color: #60a5fa;">💰</div>
+        </div>
+      </div>
+
+      <!-- Analytics Layout -->
+      <div class="db-grid" style="display: grid; grid-template-columns: 1.25fr 1fr; gap: 2rem;">
+        
+        <!-- Left: Quick Info Card -->
+        <div style="background-color: #121824; border: 1px solid rgba(255,255,255,0.03); padding: 2rem; border-radius: 8px;">
+          <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: #fff;">Underwriting Ratios</h2>
+          <p style="color: #9ca3af; font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">Review automatic risk evaluation quotients. Automated verification filters cross-reference database fields with local registries to minimize credit default limits.</p>
+          
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 0.25rem;">
+                <span style="color: #9ca3af;">Portfolio Approval Rate</span>
+                <span style="color: var(--accent-gold); font-weight: 700;">84%</span>
+              </div>
+              <div style="width: 100%; height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden;">
+                <div style="width: 84%; height: 100%; background: var(--accent-gold);"></div>
+              </div>
+            </div>
+            
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 0.25rem;">
+                <span style="color: #9ca3af;">Capital Disbursed Ratio</span>
+                <span style="color: #60a5fa; font-weight: 700;">68%</span>
+              </div>
+              <div style="width: 100%; height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden;">
+                <div style="width: 68%; height: 100%; background: #60a5fa;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Trend graph -->
+        <div style="background-color: #121824; border: 1px solid rgba(255,255,255,0.03); padding: 2rem; border-radius: 8px;">
+          <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: #fff;">Applications (By Program)</h2>
+          
+          <div id="adminCategoryChart" style="display: flex; flex-direction: column; gap: 1rem;">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+      </div>
+    
+      <!-- Admin System Audit Log -->
+      <div style="background-color: #121824; border: 1px solid rgba(255,255,255,0.03); padding: 2rem; border-radius: 8px; margin-top: 2rem;">
+        <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: #fff;">Underwriter Action Log</h2>
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: left; color: #f3f4f6;">
+            <thead>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.08); color: #9ca3af;">
+                <th style="padding: 10px;">Timestamp</th>
+                <th style="padding: 10px;">Operator</th>
+                <th style="padding: 10px;">Action Description</th>
+                <th style="padding: 10px;">Node</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 10px;">Today 10:24</td>
+                <td style="padding: 12px 10px; color: var(--accent-gold); font-weight:600;">System Auto</td>
+                <td style="padding: 12px 10px;">Cron Job: Local backup snapshots saved.</td>
+                <td style="padding: 12px 10px; color: #3cb371;">🟢 Backup-1</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px 10px;">Yesterday 16:45</td>
+                <td style="padding: 12px 10px; color: var(--accent-gold); font-weight:600;">Admin Console</td>
+                <td style="padding: 12px 10px;">Interest Rate index synced with Federal limits.</td>
+                <td style="padding: 12px 10px; color: #3cb371;">🟢 Gateway-A</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Validate logged-in session
+      const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
+      if (!currentUser || currentUser.role !== 'admin') {
+        alert('Unauthorized access. Please login to enter the admin console.');
+        window.location.href = 'login.html';
+        return;
+      }
+
+      // Populate metrics
+      const apps = JSON.parse(localStorage.getItem('loanApplications') || '[]');
+      
+      const totalApps = apps.length;
+      const pendingApps = apps.filter(app => app.status === 'Pending').length;
+      const approvedApps = apps.filter(app => app.status === 'Approved' || app.status === 'Disbursed').length;
+      
+      const outstandingAmt = apps.filter(app => app.status === 'Disbursed')
+                                 .reduce((sum, app) => sum + Number(app.amount), 0);
+
+      document.getElementById('adminTotalApps').innerText = totalApps;
+      document.getElementById('adminPendingApps').innerText = pendingApps;
+      document.getElementById('adminApprovedApps').innerText = approvedApps;
+      document.getElementById('adminOutstandingAmt').innerText = `$${outstandingAmt.toLocaleString()}`;
+
+      // Build program chart categories counts
+      const counts = {
+        'Personal Loan': 0,
+        'Debt Consolidation': 0,
+        'Emergency Medical': 0,
+        'Home Improvement': 0,
+        'Business Loan': 0
+      };
+
+      apps.forEach(app => {
+        if (counts[app.program] !== undefined) {
+          counts[app.program]++;
+        }
+      });
+
+      const maxCount = Math.max(...Object.values(counts), 1);
+
+      const chartContainer = document.getElementById('adminCategoryChart');
+      chartContainer.innerHTML = Object.entries(counts).map(([prog, cnt]) => {
+        const pct = (cnt / maxCount) * 100;
+        return `
+          <div>
+            <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 0.25rem;">
+              <span style="color: #9ca3af;">${prog}</span>
+              <span style="color: #fff; font-weight: 600;">${cnt} applications</span>
+            </div>
+            <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden;">
+              <div style="width: ${pct}%; height: 100%; background: var(--accent-gold); border-radius: 4px;"></div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      // Logout handler
+      document.querySelectorAll('.action-logout').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          localStorage.removeItem('currentUser');
+          alert('Logged out successfully.');
+          window.location.href = 'login.html';
+        });
+      });
+    });
+  </script>
+
+  <script>
+    // Handle mobile hamburger dropdown toggles
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.getElementById('dbMobileMenuToggle');
+      const dropdown = document.getElementById('dbMobileDropdown');
+      if (menuToggle && dropdown) {
+        menuToggle.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (dropdown.style.display === 'none' || dropdown.style.display === '') {
+            dropdown.style.display = 'flex';
+          } else {
+            dropdown.style.display = 'none';
+          }
+        });
+        
+        // Close menu if user clicks elsewhere
+        document.addEventListener('click', () => {
+          dropdown.style.display = 'none';
+        });
+      }
+    });
+  </script>
+</body>
+</html>

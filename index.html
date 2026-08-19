@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Secure, transparent, and quick digital personal loans with flexible terms. Calculate your EMI and apply online today.">
+  <title>Apex Loans | Digital Personal Loan Platform</title>
+  <link rel="stylesheet" href="css/style.css?v=1.4">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Drawer Overlay Backdrop -->
+  <div class="drawer-overlay"></div>
+
+  <!-- Sticky Header & Navbar -->
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo-container" style="display: inline-block;">
+        <img src="assets/images/logo.webp" alt="Stackly Logo" style="height: 32px; display: block;">
+      </a>
+      
+      <nav>
+        <ul class="nav-menu">
+          <!-- Mobile Drawer Header -->
+          <li class="drawer-header">
+            <a href="index.html" class="logo-container" style="display: inline-block; margin-bottom: 10px;">
+              <img src="assets/images/logo.webp" alt="Stackly Logo" style="height: 32px; display: block;">
+            </a>
+            <button type="button" class="drawer-close" aria-label="Close Menu">×</button>
+          </li>
+          
+          <!-- Mobile Search -->
+          <li class="drawer-search">
+            <input type="text" placeholder="Search resources..." onkeyup="if(event.key === 'Enter') { alert('Searching for: ' + this.value); }">
+          </li>
+
+          <!-- Nav Links -->
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="loans.html" class="nav-link">Loans</a></li>
+          <li><a href="apply.html" class="nav-link">Apply Now</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+
+          <!-- Mobile Actions -->
+          <li class="nav-actions-mobile">
+            <a href="login.html" class="btn btn-outline">Login</a>
+            <a href="register.html" class="btn btn-primary">Register</a>
+          </li>
+
+          <!-- Mobile Contact Info -->
+          <li class="drawer-contact-info">
+            <h5>Customer Support</h5>
+            <p>📞 +1 (800) 555-APEX</p>
+            <p>✉️ support@apexloans.com</p>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Desktop actions -->
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline" style="padding: 0.5rem 1.25rem;">Login</a>
+        <a href="register.html" class="btn btn-primary" style="padding: 0.5rem 1.25rem;">Register</a>
+      </div>
+
+      <!-- Hamburger toggle button -->
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+  <div class="navbar-spacer"></div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content animate-slide-left">
+        <h1>Simple Loans.<br><span>Clear Terms.</span> Faster Decisions.</h1>
+        <p>Explore flexible personal loan programs tailored to your financial goals. Get real-time decisions, transparent rates, and money in your account quickly without hidden surprises.</p>
+        <div class="hero-cta">
+          <a href="apply.html" class="btn btn-primary">Apply Online Now</a>
+          <a href="#quickCalc" class="btn btn-secondary">Calculate EMI</a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item">
+            <span class="num">24Hr</span>
+            <span class="lbl">Disbursement<br>Average</span>
+          </div>
+          <div class="trust-item">
+            <span class="num">100%</span>
+            <span class="lbl">Digital<br>Application</span>
+          </div>
+          <div class="trust-item">
+            <span class="num">4.8★</span>
+            <span class="lbl">Customer<br>Rating</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image animate-fade-in" style="position: relative;">
+        <img src="assets/images/loan_consultation.webp" alt="Person discussing a personal loan with a financial advisor" loading="eager">
+        <!-- Floating stats badge -->
+        <div class="floating-stats-badge" style="position: absolute; bottom: 30px; left: -20px; background-color: rgba(11, 19, 43, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: var(--border-radius-md); padding: 1.25rem; display: flex; align-items: center; gap: 15px; box-shadow: var(--shadow-lg); z-index: 5; color: #ffffff;">
+          <div class="floating-stats-icon" style="width: 50px; height: 50px; background-color: rgba(6, 214, 160, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-teal); font-size: 1.5rem;">✓</div>
+          <div class="floating-stats-info">
+            <h4 style="color:#ffffff; font-size: 1.5rem; line-height: 1; font-weight: 700; margin-bottom: 0.25rem;">98.4%</h4>
+            <p style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.7); margin-bottom: 0;">Approval Rate</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Loan Products Section -->
+  <section class="section-padding" style="background-color: var(--neutral-light);">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="mb-2">Explore Our Loan Products</h2>
+        <p class="text-muted" style="max-width: 600px; margin: 0 auto;">Select from specialized personal loan solutions designed around your direct needs.</p>
+      </div>
+
+      <div class="loans-grid">
+        <!-- Personal Loan -->
+        <div class="loan-card scroll-reveal">
+          <div class="loan-card-icon">💼</div>
+          <h3>Personal Loan</h3>
+          <p>Unsecured flexible funds for diverse personal requirements. Ideal for shopping, family updates, or emergency gaps.</p>
+          <div class="loan-details-summary">
+            <div class="summary-item"><span class="summary-label">Loan Range</span><span class="summary-val">$1K - $40K</span></div>
+            <div class="summary-item"><span class="summary-label">Tenure</span><span class="summary-val">12 - 60 Months</span></div>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-size:0.8rem; font-weight:600; color:var(--accent-blue);">APR: 8.99% - 15.99%</span>
+            <a href="apply.html?type=Personal+Loan&amt=10000" class="btn btn-primary" style="padding: 0.5rem 1.25rem;">Apply Now</a>
+          </div>
+        </div>
+
+        <!-- Emergency Loan -->
+        <div class="loan-card scroll-reveal reveal-delay-1">
+          <div class="loan-card-icon">🚨</div>
+          <h3>Emergency Loan</h3>
+          <p>Instant approval parameters for priority situations. Perfect for unexpected repair costs or immediate bills.</p>
+          <div class="loan-details-summary">
+            <div class="summary-item"><span class="summary-label">Loan Range</span><span class="summary-val">$500 - $5K</span></div>
+            <div class="summary-item"><span class="summary-label">Tenure</span><span class="summary-val">3 - 12 Months</span></div>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-size:0.8rem; font-weight:600; color:var(--accent-blue);">APR: 10.99% - 19.99%</span>
+            <a href="apply.html?type=Emergency+Loan&amt=2500" class="btn btn-primary" style="padding: 0.5rem 1.25rem;">Apply Now</a>
+          </div>
+        </div>
+
+        <!-- Debt Consolidation Loan -->
+        <div class="loan-card scroll-reveal reveal-delay-2">
+          <div class="loan-card-icon">💳</div>
+          <h3>Consolidation Loan</h3>
+          <p>Merge multiple high-interest credit drafts into a single monthly repayment term with stable, transparent rates.</p>
+          <div class="loan-details-summary">
+            <div class="summary-item"><span class="summary-label">Loan Range</span><span class="summary-val">$5K - $50K</span></div>
+            <div class="summary-item"><span class="summary-label">Tenure</span><span class="summary-val">24 - 72 Months</span></div>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <span style="font-size:0.8rem; font-weight:600; color:var(--accent-blue);">APR: 7.49% - 14.49%</span>
+            <a href="apply.html?type=Debt+Consolidation&amt=15000" class="btn btn-primary" style="padding: 0.5rem 1.25rem;">Apply Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mapped WebP Image Grid Panel -->
+      <div class="scroll-reveal responsive-grid-2" style="margin-top: 5rem; background: #ffffff; border-radius: var(--border-radius-lg); padding: 3rem; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+        <div style="display: flex; flex-direction: column; justify-content: center;">
+          <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: var(--primary-navy);">Empowering Financial Planning</h3>
+          <p class="text-muted" style="margin-bottom: 1.5rem; line-height: 1.6;">Our dedicated lenders provide tailored loan structures that keep your monthly budgets balanced and your financial objectives within reach.</p>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 0.5rem; display: flex; gap: 10px; font-weight: 500;">✓ Custom Fixed Monthly Installments</li>
+            <li style="margin-bottom: 0.5rem; display: flex; gap: 10px; font-weight: 500;">✓ Low Fixed APR Thresholds</li>
+            <li style="margin-bottom: 0.5rem; display: flex; gap: 10px; font-weight: 500;">✓ No Collateral or Hidden Fees</li>
+          </ul>
+        </div>
+        <div>
+          <img src="assets/images/personal_finance.webp" alt="Family and person planning household finances together" loading="lazy" style="width: 100%; height: 100%; min-height: 280px; border-radius: var(--border-radius-md); box-shadow: var(--shadow-md); object-fit: cover; display: block;">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EMI Calculator Section -->
+  <section id="quickCalc" class="section-padding" style="background-color: #ffffff;">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="mb-2">Real-Time EMI Estimator</h2>
+        <p class="text-muted" style="max-width: 600px; margin: 0 auto;">Calculate your monthly commitments instantly using our real-time loan simulation engine.</p>
+      </div>
+
+      <div class="calc-container">
+        <!-- Inputs -->
+        <div class="calc-inputs">
+          <div class="input-group">
+            <div class="input-labels">
+              <label for="emiLoanAmt">Loan Amount ($)</label>
+              <span id="emiLoanAmtVal" class="input-value-display">$10,000</span>
+            </div>
+            <input type="range" id="emiLoanAmt" min="1000" max="50000" step="500" value="10000" style="width:100%;">
+          </div>
+
+          <div class="input-group">
+            <div class="input-labels">
+              <label for="emiInterest">Annual Interest Rate (APR %)</label>
+              <span id="emiInterestVal" class="input-value-display">9.5%</span>
+            </div>
+            <input type="range" id="emiInterest" min="5" max="25" step="0.1" value="9.5" style="width:100%;">
+          </div>
+
+          <div class="input-group">
+            <div class="input-labels">
+              <label for="emiTenure">Tenure (Months)</label>
+              <span id="emiTenureVal" class="input-value-display">24 Months</span>
+            </div>
+            <input type="range" id="emiTenure" min="6" max="72" step="6" value="24" style="width:100%;">
+          </div>
+        </div>
+
+        <!-- Output Display -->
+        <div class="calc-results" style="position: relative;">
+          <div class="result-card">
+            <h3>Estimated Monthly Payment</h3>
+            <span id="calculatedEmi" class="result-value">$459.14</span>
+          </div>
+
+          <!-- SVG Donut Chart -->
+          <div class="chart-container" style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+            <svg class="donut-chart-svg" viewBox="0 0 120 120" style="width: 120px; height: 120px;">
+              <circle cx="60" cy="60" r="54" fill="transparent" stroke="rgba(255,255,255,0.08)" stroke-width="8" />
+              <circle id="emiChartPath" cx="60" cy="60" r="54" fill="transparent" stroke="var(--accent-teal)" stroke-width="8" stroke-dasharray="339.292" stroke-dashoffset="339.292" transform="rotate(-90 60 60)" stroke-linecap="round" />
+            </svg>
+            <div id="emiPercentText" class="chart-center-text" style="font-weight: 600; font-size: 0.85rem;">10% Interest</div>
+          </div>
+
+          <div class="results-divider"></div>
+
+          <div class="result-breakdown">
+            <div class="breakdown-row">
+              <span class="breakdown-label">Total Principal</span>
+              <span class="breakdown-value" id="calculatedPrincipalVal">$10,000.00</span>
+            </div>
+            <div class="breakdown-row">
+              <span class="breakdown-label">Total Interest Payable</span>
+              <span class="breakdown-value" id="calculatedInterest">$1,019.46</span>
+            </div>
+            <div class="breakdown-row">
+              <span class="breakdown-label">Total Payable Sum</span>
+              <span class="breakdown-value" id="calculatedRepay">$11,019.46</span>
+            </div>
+          </div>
+
+          <div class="calc-actions" style="margin-top: 1.5rem;">
+            <a href="apply.html" id="calculatorApplyBtn" class="btn btn-primary" style="width: 100%; text-align: center; text-decoration: none;">Proceed to Application</a>
+          </div>
+          <img src="assets/images/emi_calculators.webp" alt="Smartphone displaying monthly EMI calculator parameters" loading="lazy" style="position: absolute; right: 15px; top: 15px; width: 40px; height: 40px; opacity: 0.08; pointer-events: none;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="section-padding" style="background-color: var(--neutral-light);">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="mb-2">How It Works</h2>
+        <p class="text-muted" style="max-width: 600px; margin: 0 auto;">Our digital underwriting framework is structured to verify requests and process dispersals rapidly.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card scroll-reveal">
+          <div class="step-num">01</div>
+          <h3>Check Eligibility</h3>
+          <p>Fill out the pre-qualification metrics in less than 2 minutes. Requires no hard credit search logs.</p>
+        </div>
+        <div class="step-card scroll-reveal reveal-delay-1">
+          <div class="step-num">02</div>
+          <h3>Submit Application</h3>
+          <p>Input basic employment details and upload digital bank payslip documentation securely.</p>
+        </div>
+        <div class="step-card scroll-reveal reveal-delay-2">
+          <div class="step-num">03</div>
+          <h3>Receive Decision</h3>
+          <p>Our automated engine runs verification algorithms to deliver credit approvals within 24 hours.</p>
+        </div>
+      </div>
+
+      <!-- How It Works Mapped Image Banner -->
+      <div class="scroll-reveal responsive-grid-2" style="margin-top: 5rem; gap: 4rem;">
+        <div>
+          <img src="assets/images/banking_apps.webp" alt="Customer checking monthly loan balance on mobile banking app" loading="lazy" style="width: 100%; height: 100%; min-height: 260px; border-radius: var(--border-radius-md); box-shadow: var(--shadow-md); object-fit: cover; display: block;">
+        </div>
+        <div style="display: flex; flex-direction: column; justify-content: center;">
+          <h3 style="font-size: 1.6rem; margin-bottom: 1rem; color: var(--primary-navy);">Digital Underwriting at Your Fingertips</h3>
+          <p class="text-muted" style="line-height: 1.6; margin-bottom: 1.5rem;">Access loan features, submit verification drafts, and view repayment calendars on the go. Our optimized interface brings banking directly to your phone screen.</p>
+          <a href="about.html" class="btn btn-outline">Explore Security Metrics</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="section-padding" style="background-color: #ffffff;">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="mb-2">What Our Customers Say</h2>
+        <p class="text-muted" style="max-width: 600px; margin: 0 auto;">Read stories from verified borrowers who accomplished their goals using our transparent services.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card scroll-reveal">
+          <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
+            <img src="assets/images/customer1.webp" alt="Sarah J. verified borrower portrait" loading="lazy" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-blue);">
+            <div>
+              <h4 style="margin: 0; font-size: 1rem; color: var(--primary-navy);">Sarah J.</h4>
+              <p style="margin: 0; font-size: 0.75rem; color: var(--text-muted);">Home Renovation Loan</p>
+            </div>
+          </div>
+          <p class="text-muted" style="font-style: italic; font-size: 0.9rem; line-height: 1.6;">"The EMI calculator was 100% accurate. I submitted my application on Tuesday morning and the home renovation funds were in my account by Wednesday afternoon."</p>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card scroll-reveal reveal-delay-1">
+          <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
+            <img src="assets/images/customer2.webp" alt="Marcus V. verified borrower portrait" loading="lazy" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-blue);">
+            <div>
+              <h4 style="margin: 0; font-size: 1rem; color: var(--primary-navy);">Marcus V.</h4>
+              <p style="margin: 0; font-size: 0.75rem; color: var(--text-muted);">Debt Consolidation Loan</p>
+            </div>
+          </div>
+          <p class="text-muted" style="font-style: italic; font-size: 0.9rem; line-height: 1.6;">"Consolidating 3 separate high-interest credit cards was extremely seamless. This service reduced my total interest rate by 5% and cut my monthly bills in half."</p>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card scroll-reveal reveal-delay-2">
+          <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
+            <img src="assets/images/customer3.webp" alt="Elena R. verified borrower portrait" loading="lazy" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-blue);">
+            <div>
+              <h4 style="margin: 0; font-size: 1rem; color: var(--primary-navy);">Elena R.</h4>
+              <p style="margin: 0; font-size: 0.75rem; color: var(--text-muted);">Emergency Medical Loan</p>
+            </div>
+          </div>
+          <p class="text-muted" style="font-style: italic; font-size: 0.9rem; line-height: 1.6;">"When my clinic bills caught me off guard, this platform approved my request in 3 hours. The speed and lack of complex paperwork saved me from high stress."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section (Mapped Image) -->
+  <section class="section-padding scroll-reveal" style="background-color: var(--neutral-light); border-top: 1px solid var(--border-color);">
+    <div class="container responsive-grid-2" style="gap: 4rem;">
+      <div style="display: flex; flex-direction: column; justify-content: center;">
+        <h2 style="font-size: 2.2rem; margin-bottom: 1rem; color: var(--primary-navy);">Secure Your Financial Future Today</h2>
+        <p class="text-muted" style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem;">Take control of your budgets with our flexible personal lending choices. Join thousands of clients who borrow responsibly with zero surprise expenses.</p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="apply.html" class="btn btn-primary" style="padding: 1rem 2rem;">Apply Now</a>
+          <a href="about.html" class="btn btn-outline" style="padding: 1rem 2rem;">Learn More</a>
+        </div>
+      </div>
+      <div>
+        <img src="assets/images/financial_planning.webp" alt="Person confidently planning personal finance budgets and saving limits" loading="lazy" style="width: 100%; height: 100%; min-height: 280px; border-radius: var(--border-radius-md); box-shadow: var(--shadow-md); object-fit: cover; display: block;">
+      </div>
+    </div>
+  </section>
+
+  <!-- Premium Redesigned Footer (Stackly Exact Structure) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <a href="index.html" style="display: inline-block;">
+              <img src="assets/images/logo.webp" alt="Stackly Logo" style="height: 32px; display: block;">
+            </a>
+          </div>
+          <p class="footer-desc">Mobilizing rapid exhibition coordinating systems, visitor matchmaking resources, live booth mapping grids, and custom corporate expos.</p>
+          <div class="social-links">
+            <a href="404.html" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html" class="social-link" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="404.html" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="social-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="loans.html">Loans</a></li>
+            <li><a href="apply.html">Apply Now</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Support</h3>
+          <ul class="footer-links">
+            <li><a href="contact.html">Contact Coordinates</a></li>
+            <li><a href="404.html">FAQ & Agreements</a></li>
+            <li><a href="admin.html">System Portals</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Newsletter</h3>
+          <p class="footer-desc" style="margin-bottom: 15px;">Get quarterly emergency updates, newly booked expos, and registered visitors trends reports.</p>
+          <form class="footer-newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!'); this.reset();">
+            <input type="email" class="footer-newsletter-input" placeholder="Your Email" required>
+            <button type="submit" class="footer-newsletter-btn">Join</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Stackly. All rights reserved. Designed for professional exhibition management.</p>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
+          <a href="404.html">Security Audits</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

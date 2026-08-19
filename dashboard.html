@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Borrower Overview Console. Review repayments, check status updates, and view outstanding balances.">
+  <title>Borrower Overview | Apex Loans</title>
+  <link rel="stylesheet" href="css/style.css?v=1.4?v=1.4">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="dashboard-body">
+
+  <!-- Sidebar Mobile Overlay -->
+  <div class="db-sidebar-overlay" id="dbSidebarOverlay"></div>
+
+  <!-- Mobile Top Navigation Header -->
+  <header class="db-mobile-header" style="display: none;">
+    <a href="dashboard.html" style="display: inline-block;">
+      <img src="assets/images/logo.webp" alt="Stackly Logo" style="height: 28px; display: block;">
+    </a>
+    <button id="dbMobileMenuToggle" style="background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer;">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </header>
+  
+  
+
+  <div class="db-container">
+    <!-- Left Sidebar -->
+    <aside class="db-sidebar">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 2rem;">
+          <a href="dashboard.html" class="sidebar-logo" style="margin-bottom:0;">
+            <img src="assets/images/logo.webp" alt="Stackly Logo">
+          </a>
+          <button id="dbSidebarClose" style="background:none; border:none; color:#9ca3af; font-size:1.25rem; cursor:pointer; display:none;"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        
+        <div class="sidebar-section-title">Main</div>
+        <ul class="sidebar-menu">
+          <li><a href="dashboard.html" class="sidebar-link active"><i class="fa-solid fa-chart-line"></i>Overview</a></li>
+          <li><a href="dashboard-apply.html" class="sidebar-link"><i class="fa-solid fa-file-invoice-dollar"></i>Apply New Loan</a></li>
+        </ul>
+
+        <div class="sidebar-section-title">Verifications</div>
+        <ul class="sidebar-menu">
+          <li><a href="dashboard-tracking.html" class="sidebar-link"><i class="fa-solid fa-route"></i>Track Submissions</a></li>
+          <li><a href="dashboard-documents.html" class="sidebar-link"><i class="fa-solid fa-folder-open"></i>My Documents</a></li>
+        </ul>
+
+        <div class="sidebar-section-title">Settings</div>
+        <ul class="sidebar-menu">
+          <li><a href="dashboard-profile.html" class="sidebar-link"><i class="fa-solid fa-user-gear"></i>Account Profile</a></li>
+          <li><a href="dashboard-support.html" class="sidebar-link"><i class="fa-solid fa-headset"></i>Support Desk</a></li>
+        </ul>
+        <!-- Sidebar Info Card -->
+        <div style="background: rgba(255, 184, 0, 0.05); border: 1px solid rgba(255, 184, 0, 0.1); border-radius: 6px; padding: 1rem; margin-top: 2rem;">
+          <h5 style="color: var(--accent-gold); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 0.5rem 0; font-weight: 700;">Underwriting Active</h5>
+          <p style="color: #9ca3af; font-size: 0.75rem; line-height: 1.4; margin: 0;">Upload your payslips inside **My Documents** to speed up manual credit audits by 4x.</p>
+        </div>
+      </div>
+
+      <div>
+        <a href="#" class="signout-btn action-logout"><i class="fa-solid fa-right-from-bracket"></i>Sign Out</a>
+      </div>
+    </aside>
+
+    <!-- Right Main Panel -->
+    <main class="db-main">
+      <!-- Top Navigation -->
+      <div class="db-top-nav">
+        <h2 class="top-nav-title">Borrower Overview Console</h2>
+        <div class="user-profile-badge">
+          <div class="user-info">
+            <p class="user-name" id="dbUserName">Loading...</p>
+            <p class="user-role">Borrower Member</p>
+          </div>
+          <div class="user-avatar" id="dbUserAvatar">U</div>
+        </div>
+      </div>
+
+      <!-- Welcome Hero -->
+      <div class="db-welcome-hero" style="margin-top: 1rem;">
+        <h1>Hello, <span id="dbHeroName" style="color: var(--accent-gold);">Borrower</span>!</h1>
+        <p style="font-size: 0.85rem; color: #9ca3af; margin-top: 0.25rem; margin-bottom: 0.5rem;">Secure Session: <strong id="dbHeroEmail" style="color: var(--accent-gold);">...</strong></p>
+        <p>Access your active loan accounts, repayments schedule, and document checklists.</p>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="db-stats-row">
+        <div class="db-stat-card">
+          <div>
+            <div class="db-stat-label">Requested Amount</div>
+            <p class="db-stat-value" id="userReqAmt">$0</p>
+          </div>
+          <div class="db-stat-icon">💵</div>
+        </div>
+
+        <div class="db-stat-card">
+          <div>
+            <div class="db-stat-label">Approved Amount</div>
+            <p class="db-stat-value" id="userApprovedAmt">$0</p>
+          </div>
+          <div class="db-stat-icon">✓</div>
+        </div>
+
+        <div class="db-stat-card">
+          <div>
+            <div class="db-stat-label">Outstanding Balance</div>
+            <p class="db-stat-value" id="userOutstandingAmt">$0</p>
+          </div>
+          <div class="db-stat-icon">🔄</div>
+        </div>
+
+        <div class="db-stat-card">
+          <div>
+            <div class="db-stat-label">Next EMI Installment</div>
+            <p class="db-stat-value" id="userNextEmi">--</p>
+          </div>
+          <div class="db-stat-icon">📅</div>
+        </div>
+      </div>
+
+      <!-- Main Overview Cards Grid -->
+      <div class="db-grid" style="display: grid; grid-template-columns: 1.25fr 1fr; gap: 2rem;">
+        
+        <!-- Left: Submission Progress -->
+        <div style="background-color: #121824; border: 1px solid rgba(255,255,255,0.03); padding: 2rem; border-radius: 8px;">
+          <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: #fff;">Underwriting Milestones</h2>
+          
+          <div id="trackingMilestonesVisual" style="display: flex; flex-direction: column; gap: 1.5rem; position: relative; padding-left: 20px; border-left: 2px dashed rgba(255, 184, 0, 0.2);">
+            <!-- Populated Dynamically -->
+          </div>
+        </div>
+
+        <!-- Right: Amortization promo / Info -->
+        <div style="background-color: #121824; border: 1px solid rgba(255,255,255,0.03); padding: 2rem; border-radius: 8px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <h2 style="font-size: 1.25rem; margin-bottom: 1rem; color: #fff;">Repayment Summary</h2>
+            <p style="color: #9ca3af; font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem;">Your monthly repayment is set to adjust automatically based on interest tiers. Once your loan status is set to **Disbursed**, repayment schedules become fully active.</p>
+            
+            <div style="background: rgba(255, 184, 0, 0.05); padding: 1.25rem; border-radius: 6px; border: 1px solid rgba(255, 184, 0, 0.1); margin-bottom: 1.5rem;">
+              <p style="font-size: 0.8rem; color: var(--accent-gold); font-weight: 700; margin-bottom: 0.5rem; text-transform: uppercase;">Active Interest Rate</p>
+              <h3 style="font-size: 1.5rem; margin: 0; color: #fff;" id="dbActiveApr">8.99% APR</h3>
+            </div>
+          </div>
+          
+          <a href="dashboard-apply.html" class="btn btn-primary" style="text-align: center; text-decoration: none; padding: 12px; font-weight: 700;">Create New Application</a>
+        </div>
+      </div>
+    
+      <!-- System Activity & Risk Log -->
+      <div style="background-color: #121824; border: 1px solid rgba(255,255,255,0.03); padding: 2rem; border-radius: 8px; margin-top: 2rem;">
+        <h2 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: #fff;">System Activity & Risk Log</h2>
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: left; color: #f3f4f6;">
+            <thead>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.08); color: #9ca3af;">
+                <th style="padding: 10px;">Date</th>
+                <th style="padding: 10px;">Log Category</th>
+                <th style="padding: 10px;">Event Description</th>
+                <th style="padding: 10px;">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 10px;">Today</td>
+                <td style="padding: 12px 10px; color: var(--accent-gold); font-weight:600;">Underwriting</td>
+                <td style="padding: 12px 10px;">Auto eligibility filter check matched with Borrower tier.</td>
+                <td style="padding: 12px 10px; color: #3cb371;">🟢 Successful</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 12px 10px;">Today</td>
+                <td style="padding: 12px 10px; color: var(--accent-gold); font-weight:600;">Security</td>
+                <td style="padding: 12px 10px;">AES-256 session encryption tokens allocated.</td>
+                <td style="padding: 12px 10px; color: #3cb371;">🟢 Secured</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px 10px;">Yesterday</td>
+                <td style="padding: 12px 10px; color: var(--accent-gold); font-weight:600;">Account</td>
+                <td style="padding: 12px 10px;">Member security console login verified.</td>
+                <td style="padding: 12px 10px; color: #3cb371;">🟢 Approved</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Validate logged-in session
+      const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
+      if (!currentUser || currentUser.role !== 'user') {
+        alert('Unauthorized access. Please login to enter the console.');
+        window.location.href = 'login.html';
+        return;
+      }
+
+      // Populate user info
+      document.getElementById('dbUserName').innerText = currentUser.name;
+      document.getElementById('dbHeroName').innerText = currentUser.name;
+      document.getElementById('dbUserAvatar').innerText = currentUser.name[0].toUpperCase();
+      if (document.getElementById('dbHeroEmail')) document.getElementById('dbHeroEmail').innerText = currentUser.email;
+
+      // Read active loan application from LocalStorage
+      const apps = JSON.parse(localStorage.getItem('loanApplications') || '[]');
+      // Find latest app belonging to this user
+      const userApps = apps.filter(app => app.email === currentUser.email);
+      const activeApp = userApps.length > 0 ? userApps[userApps.length - 1] : null;
+
+      // Stats Elements
+      const reqAmtEl = document.getElementById('userReqAmt');
+      const approvedAmtEl = document.getElementById('userApprovedAmt');
+      const outstandingAmtEl = document.getElementById('userOutstandingAmt');
+      const nextEmiEl = document.getElementById('userNextEmi');
+      const activeAprEl = document.getElementById('dbActiveApr');
+
+      // Default Milestones HTML
+      const milestonesContainer = document.getElementById('trackingMilestonesVisual');
+
+      if (activeApp) {
+        reqAmtEl.innerText = `$${Number(activeApp.amount).toLocaleString()}`;
+        approvedAmtEl.innerText = activeApp.status === 'Approved' || activeApp.status === 'Disbursed' ? `$${Number(activeApp.amount).toLocaleString()}` : '$0';
+        outstandingAmtEl.innerText = activeApp.status === 'Disbursed' ? `$${Number(activeApp.amount).toLocaleString()}` : '$0';
+        nextEmiEl.innerText = activeApp.status === 'Disbursed' ? `$${Math.round(activeApp.amount * 0.0212).toLocaleString()}` : '--';
+        
+        let aprVal = "8.99% APR";
+        if (Number(activeApp.amount) > 25000) aprVal = "5.99% APR";
+        else if (Number(activeApp.amount) > 10000) aprVal = "8.99% APR";
+        else aprVal = "14.99% APR";
+        activeAprEl.innerText = aprVal;
+
+        // Build milestone elements based on status
+        const stages = [
+          { label: 'Application Submitted', desc: 'Auto-checks completed.', status: 'completed' },
+          { label: 'Document Audit', desc: 'Advisor verifying statement drafts.', status: activeApp.status === 'Pending' ? 'active' : 'completed' },
+          { label: 'Terms Signoff', desc: 'Awaiting digital signing.', status: activeApp.status === 'Approved' ? 'active' : (activeApp.status === 'Disbursed' ? 'completed' : 'pending') },
+          { label: 'Funds Disbursement', desc: 'Direct checking deposits.', status: activeApp.status === 'Disbursed' ? 'completed' : 'pending' }
+        ];
+
+        milestonesContainer.innerHTML = stages.map((stage, idx) => {
+          let dotColor = 'rgba(255,255,255,0.15)';
+          let labelColor = '#9ca3af';
+          if (stage.status === 'completed') {
+            dotColor = 'var(--accent-gold)';
+            labelColor = '#fff';
+          } else if (stage.status === 'active') {
+            dotColor = '#60a5fa';
+            labelColor = '#60a5fa';
+          }
+          return `
+            <div style="position: relative;">
+              <span style="position: absolute; left: -26px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: ${dotColor}; box-shadow: 0 0 10px ${dotColor};"></span>
+              <h4 style="margin: 0 0 0.25rem 0; font-size: 1rem; color: ${labelColor};">${stage.label}</h4>
+              <p style="margin: 0; font-size: 0.8rem; color: #6b7280;">${stage.desc}</p>
+            </div>
+          `;
+        }).join('');
+      } else {
+        reqAmtEl.innerText = '$0';
+        approvedAmtEl.innerText = '$0';
+        outstandingAmtEl.innerText = '$0';
+        nextEmiEl.innerText = '--';
+        activeAprEl.innerText = 'N/A';
+
+        milestonesContainer.innerHTML = `
+          <div style="text-align: center; padding: 2rem 0; color: #6b7280;">
+            <p>No active loan requests found.</p>
+            <a href="dashboard-apply.html" style="color: var(--accent-gold); font-weight: 700; text-decoration: none;">Submit your first request here</a>.
+          </div>
+        `;
+      }
+
+      // Logout handler
+      document.querySelectorAll('.action-logout').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          localStorage.removeItem('currentUser');
+          alert('Logged out successfully.');
+          window.location.href = 'login.html';
+        });
+      });
+    });
+  </script>
+
+  <script>
+    // Handle mobile hamburger dropdown toggles
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.getElementById('dbMobileMenuToggle');
+      const dropdown = document.getElementById('dbMobileDropdown');
+      if (menuToggle && dropdown) {
+        menuToggle.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (dropdown.style.display === 'none' || dropdown.style.display === '') {
+            dropdown.style.display = 'flex';
+          } else {
+            dropdown.style.display = 'none';
+          }
+        });
+        
+        // Close menu if user clicks elsewhere
+        document.addEventListener('click', () => {
+          dropdown.style.display = 'none';
+        });
+      }
+    });
+  </script>
+</body>
+</html>

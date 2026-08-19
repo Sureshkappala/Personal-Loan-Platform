@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Compare our competitive personal loan products. Review interest rates, limits, and repayment terms to find the perfect loan program.">
+  <title>Our Loan Products | Apex Loans</title>
+  <link rel="stylesheet" href="css/style.css?v=1.4">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Drawer Overlay Backdrop -->
+  <div class="drawer-overlay"></div>
+
+  <!-- Sticky Header & Navbar -->
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo-container" style="display: inline-block;">
+        <img src="assets/images/logo.webp" alt="Stackly Logo" style="height: 32px; display: block;">
+      </a>
+      
+      <nav>
+        <ul class="nav-menu">
+          <!-- Mobile Drawer Header -->
+          <li class="drawer-header">
+            <a href="index.html" class="logo-container" style="display: inline-block; margin-bottom: 10px;">
+              <img src="assets/images/logo.webp" alt="Stackly Logo" style="height: 32px; display: block;">
+            </a>
+            <button type="button" class="drawer-close" aria-label="Close Menu">×</button>
+          </li>
+          
+          <!-- Mobile Search -->
+          <li class="drawer-search">
+            <input type="text" placeholder="Search resources..." onkeyup="if(event.key === 'Enter') { alert('Searching for: ' + this.value); }">
+          </li>
+
+          <!-- Nav Links -->
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="loans.html" class="nav-link active">Loans</a></li>
+          <li><a href="apply.html" class="nav-link">Apply Now</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+
+          <!-- Mobile Actions -->
+          <li class="nav-actions-mobile">
+            <a href="login.html" class="btn btn-outline">Login</a>
+            <a href="register.html" class="btn btn-primary">Register</a>
+          </li>
+
+          <!-- Mobile Contact Info -->
+          <li class="drawer-contact-info">
+            <h5>Customer Support</h5>
+            <p>📞 +1 (800) 555-APEX</p>
+            <p>✉️ support@apexloans.com</p>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Desktop actions -->
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline" style="padding: 0.5rem 1.25rem;">Login</a>
+        <a href="register.html" class="btn btn-primary" style="padding: 0.5rem 1.25rem;">Register</a>
+      </div>
+
+      <!-- Hamburger toggle button -->
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+  <div class="navbar-spacer"></div>
+
+  <!-- Loans Hero -->
+  <section class="about-hero" style="background-color: var(--accent-blue-light); padding: 5rem 0; text-align: center;">
+    <div class="container animate-fade-up">
+      <h1 style="color: var(--primary-navy); margin-bottom: 1rem;">Our Loan Programs</h1>
+      <p class="text-muted" style="max-width: 700px; margin: 0 auto;">Compare flexible loan products, transparent interest rates, and payback terms side by side to choose the best plan.</p>
+    </div>
+  </section>
+
+  <!-- Comparison Section -->
+  <section class="section-padding" style="background-color: #ffffff;">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="mb-2">Compare Loan Details</h2>
+        <p class="text-muted" style="max-width: 600px; margin: 0 auto;">Review interest spreads, tenures, and maximum borrow boundaries.</p>
+      </div>
+
+      <div class="compare-container">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Loan Program</th>
+              <th>APR Interest Range</th>
+              <th>Borrow Limits ($)</th>
+              <th>Tenure Range</th>
+              <th>Disbursement Speed</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Personal Loan</strong></td>
+              <td>8.99% - 15.99%</td>
+              <td>$1,000 - $40,000</td>
+              <td>12 - 60 Months</td>
+              <td><span class="compare-tag compare-tag-teal">24 Hours</span></td>
+              <td><a href="apply.html?type=Personal+Loan&amt=10000" class="btn btn-primary" style="padding: 0.4rem 1rem; font-size: 0.8rem;">Apply</a></td>
+            </tr>
+            <tr>
+              <td><strong>Emergency Loan</strong></td>
+              <td>10.99% - 19.99%</td>
+              <td>$500 - $5,000</td>
+              <td>3 - 12 Months</td>
+              <td><span class="compare-tag compare-tag-teal">2 Hours</span></td>
+              <td><a href="apply.html?type=Emergency Loan&amt=2000" class="btn btn-primary" style="padding: 0.4rem 1rem; font-size: 0.8rem;">Apply</a></td>
+            </tr>
+            <tr>
+              <td><strong>Education Loan</strong></td>
+              <td>6.99% - 11.99%</td>
+              <td>$2,000 - $50,000</td>
+              <td>12 - 84 Months</td>
+              <td><span class="compare-tag compare-tag-teal">2 - 3 Days</span></td>
+              <td><a href="apply.html?type=Education Loan&amt=15000" class="btn btn-primary" style="padding: 0.4rem 1rem; font-size: 0.8rem;">Apply</a></td>
+            </tr>
+            <tr>
+              <td><strong>Medical Loan</strong></td>
+              <td>9.50% - 14.50%</td>
+              <td>$1,000 - $30,000</td>
+              <td>6 - 48 Months</td>
+              <td><span class="compare-tag compare-tag-teal">24 Hours</span></td>
+              <td><a href="apply.html?type=Medical Loan&amt=8000" class="btn btn-primary" style="padding: 0.4rem 1rem; font-size: 0.8rem;">Apply</a></td>
+            </tr>
+            <tr>
+              <td><strong>Travel Loan</strong></td>
+              <td>11.50% - 16.50%</td>
+              <td>$1,000 - $15,000</td>
+              <td>6 - 24 Months</td>
+              <td><span class="compare-tag compare-tag-teal">24 Hours</span></td>
+              <td><a href="apply.html?type=Travel Loan&amt=5000" class="btn btn-primary" style="padding: 0.4rem 1rem; font-size: 0.8rem;">Apply</a></td>
+            </tr>
+            <tr>
+              <td><strong>Debt Consolidation</strong></td>
+              <td>7.99% - 14.99%</td>
+              <td>$2,000 - $50,000</td>
+              <td>12 - 60 Months</td>
+              <td><span class="compare-tag compare-tag-teal">48 Hours</span></td>
+              <td><a href="apply.html?type=Debt Consolidation&amt=20000" class="btn btn-primary" style="padding: 0.4rem 1rem; font-size: 0.8rem;">Apply</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Interactive SVG Graph comparison module -->
+      <div class="db-section scroll-reveal" style="margin-top: 3.5rem; background: #ffffff; border: 1px solid var(--border-color); border-radius: var(--border-radius-md); padding: 2.25rem;">
+        <div class="db-section-header" style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem;">
+          <h2 style="font-size: 1.25rem; font-weight:600;">Lending Cost Comparison</h2>
+        </div>
+        <p class="text-muted" style="font-size: 0.85rem; margin-bottom: 2rem;">Compare the compounding cost of borrowing $15,000 over 3 years: Traditional Credit Cards (average 19% APR) vs. Apex Personal Loans (average 10% APR).</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; align-items: center;">
+          <!-- SVG line chart -->
+          <div style="background: var(--neutral-light); border-radius: var(--border-radius-sm); padding: 1.5rem; border: 1px solid var(--border-color); position: relative; min-height: 220px;">
+            <svg viewBox="0 0 400 200" style="width: 100%; height: auto; display: block;">
+              <!-- Grid lines -->
+              <line x1="40" y1="20" x2="380" y2="20" stroke="#DEE2E6" stroke-width="1" stroke-dasharray="4" />
+              <line x1="40" y1="80" x2="380" y2="80" stroke="#DEE2E6" stroke-width="1" stroke-dasharray="4" />
+              <line x1="40" y1="140" x2="380" y2="140" stroke="#DEE2E6" stroke-width="1" stroke-dasharray="4" />
+              <line x1="40" y1="180" x2="380" y2="180" stroke="#ADB5BD" stroke-width="1.5" />
+              
+              <!-- Axis Labels -->
+              <text x="35" y="24" fill="#6C757D" font-size="9" text-anchor="end">$20k</text>
+              <text x="35" y="84" fill="#6C757D" font-size="9" text-anchor="end">$15k</text>
+              <text x="35" y="144" fill="#6C757D" font-size="9" text-anchor="end">$10k</text>
+              
+              <text x="40" y="195" fill="#6C757D" font-size="9" text-anchor="middle">Start</text>
+              <text x="150" y="195" fill="#6C757D" font-size="9" text-anchor="middle">Year 1</text>
+              <text x="260" y="195" fill="#6C757D" font-size="9" text-anchor="middle">Year 2</text>
+              <text x="370" y="195" fill="#6C757D" font-size="9" text-anchor="middle">Year 3</text>
+              
+              <!-- Line 1: Credit Cards -->
+              <path d="M 40 80 Q 200 60 370 20" fill="none" stroke="var(--state-danger)" stroke-width="3" stroke-linecap="round" />
+              <circle cx="370" cy="20" r="4.5" fill="var(--state-danger)" />
+              
+              <!-- Line 2: Apex Personal Loans -->
+              <path d="M 40 80 Q 200 130 370 180" fill="none" stroke="var(--accent-teal)" stroke-width="3" stroke-linecap="round" />
+              <circle cx="370" cy="180" r="4.5" fill="var(--accent-teal)" />
+            </svg>
+          </div>
+          
+          <!-- Explanatory legends -->
+          <div>
+            <div style="margin-bottom: 1.5rem; display: flex; align-items: flex-start; gap: 0.75rem;">
+              <div style="width: 16px; height: 16px; background-color: var(--state-danger); border-radius: 4px; margin-top: 4px; flex-shrink: 0;"></div>
+              <div>
+                <h4 style="font-size: 0.95rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.15rem;">Traditional Cards (19% APR)</h4>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0; line-height: 1.4;">Total Repayment: <strong>$19,835</strong><br>Interest Payout: $4,835</p>
+              </div>
+            </div>
+            
+            <div style="margin-bottom: 1.5rem; display: flex; align-items: flex-start; gap: 0.75rem;">
+              <div style="width: 16px; height: 16px; background-color: var(--accent-teal); border-radius: 4px; margin-top: 4px; flex-shrink: 0;"></div>
+              <div>
+                <h4 style="font-size: 0.95rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.15rem;">Apex Personal Loan (10% APR)</h4>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0; line-height: 1.4;">Total Repayment: <strong>$17,422</strong><br>Interest Payout: $2,422</p>
+              </div>
+            </div>
+            
+            <div style="background: var(--accent-teal-light); border-radius: var(--border-radius-sm); padding: 1rem; border-left: 4px solid var(--accent-teal); font-size: 0.8rem; color: var(--accent-teal-hover); line-height: 1.4;">
+              🎉 Save up to <strong>$2,413</strong> in interest expenses by using an Apex Loan for consolidation.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Detailed Descriptions Grid -->
+  <section class="section-padding" style="background-color: var(--neutral-light);">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="mb-2">Detailed Lending Solutions</h2>
+        <p class="text-muted">Explore details about each category layout below.</p>
+      </div>
+
+      <div class="loans-grid">
+        <!-- Personal Loan Card -->
+        <div class="loan-card scroll-reveal">
+          <div class="loan-card-icon">💼</div>
+          <img src="assets/images/financial_advisors.webp" alt="Financial Advisor desk showing personal credit consultations" style="width:100%; border-radius: var(--border-radius-sm); margin-bottom:1.25rem; height:120px; object-fit:cover;">
+          <h3>Personal Loans</h3>
+          <p>Perfect for multi-purpose financial needs. Offers rapid electronic document approvals and flexible payback terms.</p>
+          <ul style="list-style: none; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
+            <li>✔️ No collateral required</li>
+            <li>✔️ Flexible term plans</li>
+            <li>✔️ Fixed interest profiles</li>
+          </ul>
+          <a href="apply.html?type=Personal+Loan" class="btn btn-primary">Select Program</a>
+        </div>
+
+        <!-- Emergency Loan Card -->
+        <div class="loan-card scroll-reveal reveal-delay-1">
+          <div class="loan-card-icon">🚨</div>
+          <img src="assets/images/expenses.webp" alt="Emergency Expenses" style="width:100%; border-radius: var(--border-radius-sm); margin-bottom:1.25rem; height:120px; object-fit:cover;">
+          <h3>Emergency Loans</h3>
+          <p>Created for priority expense support (car fixes, unexpected home bills). Accelerates checks for rapid payout.</p>
+          <ul style="list-style: none; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
+            <li>✔️ Underwriting check within 1 Hour</li>
+            <li>✔️ Low credit scores evaluated</li>
+            <li>✔️ Simple single-page upload</li>
+          </ul>
+          <a href="apply.html?type=Emergency Loan" class="btn btn-primary">Select Program</a>
+        </div>
+
+        <!-- Consolidation Card -->
+        <div class="loan-card scroll-reveal reveal-delay-2">
+          <div class="loan-card-icon">🔄</div>
+          <img src="assets/images/digital_payments.webp" alt="Digital Payments" style="width:100%; border-radius: var(--border-radius-sm); margin-bottom:1.25rem; height:120px; object-fit:cover;">
+          <h3>Debt Consolidation</h3>
+          <p>Allows consolidation of high-interest cards into a single lower monthly installment for credit ease.</p>
+          <ul style="list-style: none; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
+            <li>✔️ Simplifies payments</li>
+            <li>✔️ Lowers total interest</li>
+            <li>✔️ Restructures monthly budgets</li>
+          </ul>
+          <a href="apply.html?type=Debt Consolidation" class="btn btn-primary">Select Program</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Application Tracking Preview Section -->
+  <section class="section-padding scroll-reveal" style="background-color: var(--neutral-bg); border-top: 1px solid var(--border-color);">
+    <div class="container">
+      <div class="responsive-grid-2" style="gap: 4rem; max-width: 1000px; margin: 0 auto;">
+        <div>
+          <img src="assets/images/loan_tracking.webp" alt="Mobile app showing digital loan application tracking status progress bar" loading="lazy" style="width: 100%; height: 100%; min-height: 300px; border-radius: var(--border-radius-md); box-shadow: var(--shadow-md); object-fit: cover; display: block;">
+        </div>
+        <div style="display: flex; flex-direction: column; justify-content: center;">
+          <div style="font-size: 2rem; margin-bottom: 1rem;">📍</div>
+          <h2 class="mb-3">Real-Time Application Tracking</h2>
+          <p class="text-muted" style="line-height: 1.6; margin-bottom: 1.5rem;">Never wonder about your credit evaluation stage. Our transparent tracking portal shows progress bars updating through document audit, lender review, contract signing, and direct deposit stages in real-time.</p>
+          <a href="login.html" class="btn btn-outline">Access Tracking Portal</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credit Score Tier Brackets Section -->
+  <section class="section-padding scroll-reveal" style="background-color: #ffffff; border-top: 1px solid var(--border-color);">
+    <div class="container responsive-grid-2" style="gap: 4rem;">
+      <div style="display: flex; flex-direction: column; justify-content: center;">
+        <h2 style="font-size: 2.2rem; margin-bottom: 1rem; color: var(--primary-navy);">Credit Tier & Rates</h2>
+        <p class="text-muted" style="line-height: 1.6; margin-bottom: 1.5rem;">Your credit history directly determines your rate brackets. Review estimated APR spans mapped to credit tier score marks below.</p>
+        <table class="compare-table" style="font-size: 0.9rem; width: 100%;">
+          <thead>
+            <tr>
+              <th style="padding: 10px; background: var(--neutral-light); text-align: left;">Credit Score Tier</th>
+              <th style="padding: 10px; background: var(--neutral-light); text-align: left;">Average APR Range</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: 10px; border-bottom: 1px solid var(--border-color);">🌟 <strong>Excellent (720+)</strong></td>
+              <td style="padding: 10px; border-bottom: 1px solid var(--border-color);">5.99% - 8.99%</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px; border-bottom: 1px solid var(--border-color);">👍 <strong>Good (660 - 719)</strong></td>
+              <td style="padding: 10px; border-bottom: 1px solid var(--border-color);">9.00% - 13.99%</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px; border-bottom: 1px solid var(--border-color);">📈 <strong>Fair (600 - 659)</strong></td>
+              <td style="padding: 10px; border-bottom: 1px solid var(--border-color);">14.00% - 19.99%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <img src="assets/images/loans_tier_brackets.webp" alt="Interest rate tier card showing different credit score brackets" loading="lazy" style="width: 100%; height: 100%; min-height: 280px; border-radius: var(--border-radius-md); box-shadow: var(--shadow-md); object-fit: cover; display: block;">
+      </div>
+    </div>
+  </section>
+
+  <!-- Small Business Lending Section -->
+  <section class="section-padding scroll-reveal" style="background-color: var(--neutral-light); border-top: 1px solid var(--border-color);">
+    <div class="container responsive-grid-2" style="gap: 4rem;">
+      <div>
+        <img src="assets/images/loans_business.webp" alt="Office desk workspace showcasing small business enterprise lending options" loading="lazy" style="width: 100%; height: 100%; min-height: 280px; border-radius: var(--border-radius-md); box-shadow: var(--shadow-md); object-fit: cover; display: block;">
+      </div>
+      <div style="display: flex; flex-direction: column; justify-content: center;">
+        <h2 style="font-size: 2.2rem; margin-bottom: 1rem; color: var(--primary-navy);">Business Loans</h2>
+        <p class="text-muted" style="line-height: 1.6; margin-bottom: 1.5rem;">Power your side-gigs, sole proprietorships, or emergency company cash gaps with our zero-collateral commercial personal loan program.</p>
+        <ul style="list-style: none; padding: 0;">
+          <li style="margin-bottom: 0.5rem; color: var(--text-muted);">✔️ Borrow up to $100,000 without collateral</li>
+          <li style="margin-bottom: 0.5rem; color: var(--text-muted);">✔️ 24-Hour automated underwriting audits</li>
+          <li style="margin-bottom: 0.5rem; color: var(--text-muted);">✔️ Tax returns and business bank transcripts accepted</li>
+        </ul>
+        <a href="apply.html?type=Business+Loan" class="btn btn-primary" style="margin-top: 1rem; width: fit-content; text-decoration: none;">Apply for Business Credit</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Premium Redesigned Footer (Stackly Exact Structure) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <a href="index.html" style="display: inline-block;">
+              <img src="assets/images/logo.webp" alt="Stackly Logo" style="height: 32px; display: block;">
+            </a>
+          </div>
+          <p class="footer-desc">Mobilizing rapid exhibition coordinating systems, visitor matchmaking resources, live booth mapping grids, and custom corporate expos.</p>
+          <div class="social-links">
+            <a href="404.html" class="social-link" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="404.html" class="social-link" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="404.html" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="404.html" class="social-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="loans.html">Loans</a></li>
+            <li><a href="apply.html">Apply Now</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Support</h3>
+          <ul class="footer-links">
+            <li><a href="contact.html">Contact Coordinates</a></li>
+            <li><a href="404.html">FAQ & Agreements</a></li>
+            <li><a href="admin.html">System Portals</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Newsletter</h3>
+          <p class="footer-desc" style="margin-bottom: 15px;">Get quarterly emergency updates, newly booked expos, and registered visitors trends reports.</p>
+          <form class="footer-newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed!'); this.reset();">
+            <input type="email" class="footer-newsletter-input" placeholder="Your Email" required>
+            <button type="submit" class="footer-newsletter-btn">Join</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Stackly. All rights reserved. Designed for professional exhibition management.</p>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
+          <a href="404.html">Security Audits</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
