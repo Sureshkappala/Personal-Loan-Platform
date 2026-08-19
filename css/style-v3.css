@@ -495,7 +495,7 @@ header .container {
 
 /* Hero Section */
 .hero {
-  background-color: #ffffff;
+  background-color: #0a0f1d; /* Dark theme background */
   padding: 5rem 0 6rem 0;
   overflow: hidden;
   position: relative;
@@ -518,7 +518,7 @@ header .container {
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  color: var(--primary-navy);
+  color: #ffffff; /* White text for dark theme */
   letter-spacing: -0.02em;
 }
 
@@ -528,7 +528,7 @@ header .container {
 
 .hero-content p {
   font-size: 1.1rem;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.7); /* Light muted text */
   margin-bottom: 2.5rem;
   max-width: 580px;
 }
@@ -543,7 +543,7 @@ header .container {
 .hero-trust {
   display: flex;
   gap: 2.5rem;
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Light border */
   padding-top: 2rem;
 }
 
@@ -561,9 +561,18 @@ header .container {
 
 .trust-item span.lbl {
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.5); /* Light muted text */
   font-weight: 500;
   text-transform: uppercase;
+}
+
+.hero .btn-secondary {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  color: #ffffff !important;
+}
+.hero .btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
 }
 
 .hero-image {
