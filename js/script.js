@@ -929,3 +929,19 @@ function initRealTimeInputValidation() {
   });
 }
 
+
+// Page Preloader Fade-out
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('preloader');
+  if (preloader) {
+    preloader.classList.add('fade-out');
+  }
+});
+
+// Fallback safety timeout (forces fadeout after 3s if any resources stall)
+setTimeout(() => {
+  const preloader = document.getElementById('preloader');
+  if (preloader && !preloader.classList.contains('fade-out')) {
+    preloader.classList.add('fade-out');
+  }
+}, 3000);
