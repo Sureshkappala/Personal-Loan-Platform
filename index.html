@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Secure, transparent, and quick digital personal loans with flexible terms. Calculate your EMI and apply online today.">
   <title>Apex Loans | Digital Personal Loan Platform</title>
-  <link rel="stylesheet" href="css/style-v4.css?v=5.2">
+  <link rel="stylesheet" href="css/style-v4.css?v=5.3">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -94,26 +94,26 @@
         </div>
         <div class="hero-trust">
           <div class="trust-item">
-            <span class="num">24Hr</span>
+            <span class="num"><span class="stat-counter" data-target="24">0</span>Hr</span>
             <span class="lbl">Disbursement<br>Average</span>
           </div>
           <div class="trust-item">
-            <span class="num">100%</span>
+            <span class="num"><span class="stat-counter" data-target="100">0</span>%</span>
             <span class="lbl">Digital<br>Application</span>
           </div>
           <div class="trust-item">
-            <span class="num">4.8★</span>
+            <span class="num"><span class="stat-counter" data-target="4.8" data-decimals="1">0.0</span>★</span>
             <span class="lbl">Customer<br>Rating</span>
           </div>
         </div>
       </div>
       <div class="hero-image animate-fade-in" style="position: relative;">
-        <img src="assets/images/loan_consultation.webp" alt="Person discussing a personal loan with a financial advisor" loading="eager">
+        <img src="assets/images/financial_consultation.png" alt="Person discussing a personal loan with a financial advisor" loading="eager">
         <!-- Floating stats badge -->
         <div class="floating-stats-badge" style="position: absolute; bottom: 30px; left: -20px; background-color: rgba(11, 19, 43, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: var(--border-radius-md); padding: 1.25rem; display: flex; align-items: center; gap: 15px; box-shadow: var(--shadow-lg); z-index: 5; color: #ffffff;">
           <div class="floating-stats-icon" style="width: 50px; height: 50px; background-color: rgba(6, 214, 160, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-teal); font-size: 1.5rem;">✓</div>
           <div class="floating-stats-info">
-            <h4 style="color:#ffffff; font-size: 1.5rem; line-height: 1; font-weight: 700; margin-bottom: 0.25rem;">98.4%</h4>
+            <h4 style="color:#ffffff; font-size: 1.5rem; line-height: 1; font-weight: 700; margin-bottom: 0.25rem;"><span class="stat-counter" data-target="98.4" data-decimals="1">0.0</span>%</h4>
             <p style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.7); margin-bottom: 0;">Approval Rate</p>
           </div>
         </div>
@@ -131,7 +131,7 @@
 
       <div class="loans-grid">
         <!-- Personal Loan -->
-        <div class="loan-card scroll-reveal">
+        <div class="loan-card scroll-reveal reveal-fade-up">
           <div class="loan-card-icon">💼</div>
           <h3>Personal Loan</h3>
           <p>Unsecured flexible funds for diverse personal requirements. Ideal for shopping, family updates, or emergency gaps.</p>
@@ -146,7 +146,7 @@
         </div>
 
         <!-- Emergency Loan -->
-        <div class="loan-card scroll-reveal reveal-delay-1">
+        <div class="loan-card scroll-reveal reveal-fade-up reveal-delay-1">
           <div class="loan-card-icon">🚨</div>
           <h3>Emergency Loan</h3>
           <p>Instant approval parameters for priority situations. Perfect for unexpected repair costs or immediate bills.</p>
@@ -161,7 +161,7 @@
         </div>
 
         <!-- Debt Consolidation Loan -->
-        <div class="loan-card scroll-reveal reveal-delay-2">
+        <div class="loan-card scroll-reveal reveal-fade-up reveal-delay-2">
           <div class="loan-card-icon">💳</div>
           <h3>Consolidation Loan</h3>
           <p>Merge multiple high-interest credit drafts into a single monthly repayment term with stable, transparent rates.</p>
@@ -177,7 +177,7 @@
       </div>
 
       <!-- Mapped WebP Image Grid Panel -->
-      <div class="scroll-reveal responsive-grid-2" style="margin-top: 5rem; background: #ffffff; border-radius: var(--border-radius-lg); padding: 3rem; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+      <div class="scroll-reveal reveal-slide-left responsive-grid-2" style="margin-top: 5rem; background: #ffffff; border-radius: var(--border-radius-lg); padding: 3rem; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
         <div style="display: flex; flex-direction: column; justify-content: center;">
           <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: var(--primary-navy);">Empowering Financial Planning</h3>
           <p class="text-muted" style="margin-bottom: 1.5rem; line-height: 1.6;">Our dedicated lenders provide tailored loan structures that keep your monthly budgets balanced and your financial objectives within reach.</p>
@@ -188,7 +188,7 @@
           </ul>
         </div>
         <div>
-          <img src="assets/images/personal_finance.webp" alt="Family and person planning household finances together" loading="lazy" style="width: 100%; height: 100%; min-height: 280px; border-radius: var(--border-radius-md); box-shadow: var(--shadow-md); object-fit: cover; display: block;">
+          <img src="assets/images/borrower_laptop.png" alt="Family and person planning household finances together" loading="lazy" style="width: 100%; height: 100%; min-height: 280px; border-radius: var(--border-radius-md); box-shadow: var(--shadow-md); object-fit: cover; display: block;">
         </div>
       </div>
 
@@ -203,7 +203,7 @@
         <p class="text-muted" style="max-width: 600px; margin: 0 auto;">Calculate your monthly commitments instantly using our real-time loan simulation engine.</p>
       </div>
 
-      <div class="calc-container">
+      <div class="calc-container scroll-reveal reveal-slide-right">
         <!-- Inputs -->
         <div class="calc-inputs">
           <div class="input-group">
@@ -282,17 +282,17 @@
       </div>
 
       <div class="steps-grid">
-        <div class="step-card scroll-reveal">
+        <div class="step-card scroll-reveal reveal-slide-left">
           <div class="step-num">01</div>
           <h3>Check Eligibility</h3>
           <p>Fill out the pre-qualification metrics in less than 2 minutes. Requires no hard credit search logs.</p>
         </div>
-        <div class="step-card scroll-reveal reveal-delay-1">
+        <div class="step-card scroll-reveal reveal-slide-left reveal-delay-1">
           <div class="step-num">02</div>
           <h3>Submit Application</h3>
           <p>Input basic employment details and upload digital bank payslip documentation securely.</p>
         </div>
-        <div class="step-card scroll-reveal reveal-delay-2">
+        <div class="step-card scroll-reveal reveal-slide-left reveal-delay-2">
           <div class="step-num">03</div>
           <h3>Receive Decision</h3>
           <p>Our automated engine runs verification algorithms to deliver credit approvals within 24 hours.</p>
@@ -300,9 +300,9 @@
       </div>
 
       <!-- How It Works Mapped Image Banner -->
-      <div class="scroll-reveal responsive-grid-2" style="margin-top: 5rem; gap: 4rem;">
+      <div class="scroll-reveal reveal-slide-right responsive-grid-2" style="margin-top: 5rem; gap: 4rem;">
         <div>
-          <img src="assets/images/banking_apps.webp" alt="Customer checking monthly loan balance on mobile banking app" loading="lazy" style="width: 100%; height: 100%; min-height: 260px; border-radius: var(--border-radius-md); box-shadow: var(--shadow-md); object-fit: cover; display: block;">
+          <img src="assets/images/loan_steps_mockup.png" alt="Customer checking monthly loan balance on mobile banking app" loading="lazy" style="width: 100%; height: 100%; min-height: 260px; border-radius: var(--border-radius-md); box-shadow: var(--shadow-md); object-fit: cover; display: block;">
         </div>
         <div style="display: flex; flex-direction: column; justify-content: center;">
           <h3 style="font-size: 1.6rem; margin-bottom: 1rem; color: var(--primary-navy);">Digital Underwriting at Your Fingertips</h3>
@@ -324,7 +324,7 @@
 
       <div class="testimonials-grid">
         <!-- Testimonial 1 -->
-        <div class="testimonial-card scroll-reveal">
+        <div class="testimonial-card scroll-reveal reveal-fade-up">
           <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
             <img src="assets/images/customer1.webp" alt="Sarah J. verified borrower portrait" loading="lazy" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-blue);">
             <div>
@@ -336,7 +336,7 @@
         </div>
 
         <!-- Testimonial 2 -->
-        <div class="testimonial-card scroll-reveal reveal-delay-1">
+        <div class="testimonial-card scroll-reveal reveal-fade-up reveal-delay-1">
           <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
             <img src="assets/images/customer2.webp" alt="Marcus V. verified borrower portrait" loading="lazy" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-blue);">
             <div>
@@ -348,7 +348,7 @@
         </div>
 
         <!-- Testimonial 3 -->
-        <div class="testimonial-card scroll-reveal reveal-delay-2">
+        <div class="testimonial-card scroll-reveal reveal-fade-up reveal-delay-2">
           <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 1rem;">
             <img src="assets/images/customer3.webp" alt="Elena R. verified borrower portrait" loading="lazy" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-blue);">
             <div>
@@ -363,7 +363,7 @@
   </section>
 
   <!-- Final CTA Section (Mapped Image) -->
-  <section class="section-padding scroll-reveal" style="background-color: var(--neutral-light); border-top: 1px solid var(--border-color);">
+  <section class="section-padding scroll-reveal reveal-fade-up" style="background-color: var(--neutral-light); border-top: 1px solid var(--border-color);">
     <div class="container responsive-grid-2" style="gap: 4rem;">
       <div style="display: flex; flex-direction: column; justify-content: center;">
         <h2 style="font-size: 2.2rem; margin-bottom: 1rem; color: var(--primary-navy);">Secure Your Financial Future Today</h2>
@@ -374,7 +374,7 @@
         </div>
       </div>
       <div>
-        <img src="assets/images/financial_planning.webp" alt="Person confidently planning personal finance budgets and saving limits" loading="lazy" style="width: 100%; height: 100%; min-height: 280px; border-radius: var(--border-radius-md); box-shadow: var(--shadow-md); object-fit: cover; display: block;">
+        <img src="assets/images/loan_officer_shake.png" alt="Person confidently planning personal finance budgets and saving limits" loading="lazy" style="width: 100%; height: 100%; min-height: 280px; border-radius: var(--border-radius-md); box-shadow: var(--shadow-md); object-fit: cover; display: block;">
       </div>
     </div>
   </section>

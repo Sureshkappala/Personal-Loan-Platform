@@ -891,25 +891,69 @@ function initContactForm() {
 function initScrollAnimations() {
   const animatedElements = document.querySelectorAll('.scroll-reveal');
   
-  if (animatedElements.length === 0) return;
+  if (animatedElements.length > 0) {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
 
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.15
-  };
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target); // Trigger only once
+        }
+      });
+    }, observerOptions);
 
-  const observer = new IntersectionObserver((entries, observer) => {
+    animatedElements.forEach(el => {
+      observer.observe(el);
+    });
+  }
+
+  // Initialize numeric counter animations
+  animateCounters();
+}
+
+function animateCounters() {
+  const counterElements = document.querySelectorAll('.stat-counter');
+  if (counterElements.length === 0) return;
+  
+  const counterObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        observer.unobserve(entry.target); // Trigger only once
+        const el = entry.target;
+        const target = parseFloat(el.getAttribute('data-target'));
+        const decimals = parseInt(el.getAttribute('data-decimals') || '0');
+        const duration = 1500; // 1.5 seconds
+        const startTime = performance.now();
+        
+        const updateCounter = (currentTime) => {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          
+          // outQuad easing
+          const easeProgress = progress * (2 - progress);
+          const currentValue = easeProgress * target;
+          
+          el.textContent = currentValue.toFixed(decimals);
+          
+          if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+          } else {
+            el.textContent = target.toFixed(decimals);
+          }
+        };
+        
+        requestAnimationFrame(updateCounter);
+        observer.unobserve(el);
       }
     });
-  }, observerOptions);
+  }, { threshold: 0.1 });
 
-  animatedElements.forEach(el => {
-    observer.observe(el);
+  counterElements.forEach(el => {
+    counterObserver.observe(el);
   });
 }
 
@@ -948,21 +992,4 @@ setTimeout(() => {
   }
 }, 4000);
 
-// Global 404 Redirect Interceptor for Apply/Dashboard buttons
-document.addEventListener('click', (e) => {
-  const target = e.target.closest('a, button');
-  if (!target) return;
-  
-  const href = target.getAttribute('href');
-  if (href) {
-    const normalizedHref = href.toLowerCase();
-    if (
-      normalizedHref.includes('apply.html') || 
-      normalizedHref.includes('dashboard.html') || 
-      normalizedHref.includes('admin.html')
-    ) {
-      e.preventDefault();
-      window.location.href = '404.html';
-    }
-  }
-});
+
