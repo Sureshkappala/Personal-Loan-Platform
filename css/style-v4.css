@@ -2763,10 +2763,12 @@ header {
   font-weight: 700 !important;
 }
 
-/* Soft shadows for cards instead of border highlights */
+/* Accent orange card borders matching stackly reference about cards */
 .loan-card, .benefit-card, .mv-card, .testimonial-card, .stat-card, .db-stat-card, .tracker-card {
-  border: none !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important;
+  border: 1px solid #FF6B35 !important;
+  border-radius: var(--border-radius-md) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04) !important;
+  background-color: #ffffff !important;
 }
 
 /* Highlight section division outlines on all pages */
@@ -2809,10 +2811,12 @@ section {
   font-weight: 700 !important;
 }
 
-/* Soft shadows for cards instead of border highlights */
+/* Accent orange card borders matching stackly reference about cards */
 .loan-card, .benefit-card, .mv-card, .testimonial-card, .stat-card, .db-stat-card, .tracker-card {
-  border: none !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important;
+  border: 1px solid #FF6B35 !important;
+  border-radius: var(--border-radius-md) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04) !important;
+  background-color: #ffffff !important;
 }
 
 /* Highlight section division outlines on all pages */
@@ -2855,10 +2859,12 @@ section {
   font-weight: 700 !important;
 }
 
-/* Soft shadows for cards instead of border highlights */
+/* Accent orange card borders matching stackly reference about cards */
 .loan-card, .benefit-card, .mv-card, .testimonial-card, .stat-card, .db-stat-card, .tracker-card {
-  border: none !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important;
+  border: 1px solid #FF6B35 !important;
+  border-radius: var(--border-radius-md) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04) !important;
+  background-color: #ffffff !important;
 }
 
 /* Highlight section division outlines on all pages */
