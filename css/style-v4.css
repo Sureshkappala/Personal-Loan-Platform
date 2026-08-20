@@ -2935,3 +2935,19 @@ select.form-control {
     color: #ffffff !important;
   }
 }
+
+/* Fix mobile navigation drawer visibility on dark-nav pages like contact.html */
+@media (max-width: 768px) {
+  body.dark-nav header .nav-menu .nav-link {
+    color: var(--primary-navy) !important;
+  }
+  body.dark-nav header .nav-menu .nav-link:hover,
+  body.dark-nav header .nav-menu .nav-link.active {
+    color: var(--accent-blue) !important;
+  }
+  
+  /* Compact padding for contact form on mobile screens */
+  .contact-form-container {
+    padding: 24px 16px !important;
+  }
+}
