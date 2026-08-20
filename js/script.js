@@ -868,16 +868,19 @@ function initContactForm() {
       msgs.unshift(newMsg);
       localStorage.setItem('contactMessages', JSON.stringify(msgs));
 
-      // Hide contact form and headers
-      contactForm.style.display = 'none';
-      const heading = document.querySelector('.contact-form-container h2');
-      if (heading) heading.style.display = 'none';
-      const subheading = document.querySelector('.contact-form-container p.text-muted');
-      if (subheading) subheading.style.display = 'none';
-      
-      // Show success card
-      const successCard = document.getElementById('successCard');
-      if (successCard) successCard.style.display = 'block';
+      // Robustly hide all children of contact-form-container and show successCard
+      const contactContainer = document.querySelector('.contact-form-container');
+      if (contactContainer) {
+        Array.from(contactContainer.children).forEach(child => {
+          if (child.id !== 'successCard') {
+            child.style.display = 'none';
+          }
+        });
+        const successCard = document.getElementById('successCard');
+        if (successCard) {
+          successCard.style.display = 'block';
+        }
+      }
     }
   });
 }

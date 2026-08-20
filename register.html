@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Create a secure Apex Loans borrower account. Manage applications, upload details and calculate interest limits.">
   <title>Register Account | Apex Loans</title>
-  <link rel="stylesheet" href="css/style-v4.css?v=4.7">
+  <link rel="stylesheet" href="css/style-v4.css?v=4.8">
   <style>
     :root {
       --primary-dark: #0A0F1D;     /* Deep navy/charcoal background */
@@ -154,6 +154,23 @@
       <p>Register to start your loan application.</p>
     </div>
 
+    <div id="successCard" style="display: none; text-align: center; padding: 1.5rem 0;">
+      <a href="index.html" style="display: inline-block; margin-bottom: 1.5rem;">
+        <img src="assets/images/logo.webp" alt="Stackly Logo" style="height: 32px;">
+      </a>
+      <h2 style="color: #ffffff; font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; font-family: inherit;">Account Created</h2>
+      <p style="color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; margin-bottom: 2rem;">Your borrower profile has been successfully set up.</p>
+      
+      <div style="width: 70px; height: 70px; background-color: rgba(6, 214, 160, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-teal); font-size: 2.5rem; margin: 0 auto 1.5rem auto;">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      
+      <h3 style="color: #ffffff; font-size: 1.35rem; font-weight: 600; margin-bottom: 0.5rem; font-family: inherit;">Registration Approved</h3>
+      <p style="color: rgba(255, 255, 255, 0.6); font-size: 0.85rem; margin-bottom: 2rem;">Redirecting to the login portal...</p>
+      
+      <button id="successBtn" class="btn btn-primary" style="width: 100%; max-width: 220px; margin: 0 auto; display: block;">Go to Login</button>
+    </div>
+
     <form id="portalRegisterForm" novalidate>
       <div class="form-group">
         <label for="roleSelect" style="color: var(--text-light-white);">Register Profile As</label>
@@ -248,13 +265,19 @@
         existingUsers[email] = { name, email, phone, password: pass, role: role };
         localStorage.setItem('registeredUsers', JSON.stringify(existingUsers));
         
-        // Hide registration form contents
-        document.getElementById('portalRegisterForm').style.display = 'none';
-        document.querySelector('.login-card div[style*="margin-top"]').style.display = 'none';
-        
-        // Show success card
-        const successCard = document.getElementById('successCard');
-        successCard.style.display = 'block';
+        // Robustly hide all children of auth-card and show successCard
+        const authCard = document.querySelector('.auth-card');
+        if (authCard) {
+          Array.from(authCard.children).forEach(child => {
+            if (child.id !== 'successCard') {
+              child.style.display = 'none';
+            }
+          });
+          const successCard = document.getElementById('successCard');
+          if (successCard) {
+            successCard.style.display = 'block';
+          }
+        }
         
         // Redirection trigger
         document.getElementById('successBtn').addEventListener('click', () => {
