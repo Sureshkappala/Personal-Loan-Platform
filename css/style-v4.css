@@ -2884,3 +2884,13 @@ select.form-control {
   cursor: pointer !important;
   background-color: var(--neutral-light) !important;
 }
+
+/* Mobile form grid column stacking to prevent offset fields */
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .form-full {
+    grid-column: span 1 !important;
+  }
+}
