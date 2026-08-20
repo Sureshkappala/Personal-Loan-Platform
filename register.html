@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Create a secure Apex Loans borrower account. Manage applications, upload details and calculate interest limits.">
   <title>Register Account | Apex Loans</title>
-  <link rel="stylesheet" href="css/style-v4.css?v=4.6">
+  <link rel="stylesheet" href="css/style-v4.css?v=4.7">
   <style>
     :root {
       --primary-dark: #0A0F1D;     /* Deep navy/charcoal background */
@@ -247,9 +247,24 @@
         const existingUsers = JSON.parse(localStorage.getItem('registeredUsers') || '{}');
         existingUsers[email] = { name, email, phone, password: pass, role: role };
         localStorage.setItem('registeredUsers', JSON.stringify(existingUsers));
+        
+        // Hide registration form contents
+        document.getElementById('portalRegisterForm').style.display = 'none';
+        document.querySelector('.login-card div[style*="margin-top"]').style.display = 'none';
+        
+        // Show success card
+        const successCard = document.getElementById('successCard');
+        successCard.style.display = 'block';
+        
+        // Redirection trigger
+        document.getElementById('successBtn').addEventListener('click', () => {
+          window.location.href = 'login.html';
+        });
 
-        alert('Account successfully registered! Please login to continue.');
-        window.location.href = 'login.html';
+        // Trigger auto-redirect countdown
+        setTimeout(() => {
+          window.location.href = 'login.html';
+        }, 2000);
       });
     });
   </script>

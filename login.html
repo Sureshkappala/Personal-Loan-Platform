@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Access your Apex Loans portal. Enter your security credentials to manage applications.">
   <title>Login | Apex Loans</title>
-  <link rel="stylesheet" href="css/style-v4.css?v=4.6">
+  <link rel="stylesheet" href="css/style-v4.css?v=4.7">
   <style>
     :root {
       --primary-dark: #0A0F1D;     /* Deep navy/charcoal background */
@@ -213,20 +213,24 @@
           return;
         }
 
+        let redirectUrl = '';
+        let welcomeName = '';
+
         if (role === 'admin') {
           if (email === 'admin@loan.com' && pass === 'admin123') {
             localStorage.setItem('currentUser', JSON.stringify({ role: 'admin', email: 'admin@loan.com', name: 'Administrator' }));
-            alert('Welcome Administrator!');
-            window.location.href = 'admin.html';
+            redirectUrl = 'admin.html';
+            welcomeName = 'Administrator';
           } else {
             const users = JSON.parse(localStorage.getItem('registeredUsers') || '{}');
             const user = users[email];
             if (user && user.password === pass && user.role === 'admin') {
               localStorage.setItem('currentUser', JSON.stringify({ role: 'admin', email: user.email, name: user.name }));
-              alert(`Welcome back, ${user.name}!\nSuccessfully authenticated as Administrator.`);
-              window.location.href = 'admin.html';
+              redirectUrl = 'admin.html';
+              welcomeName = user.name;
             } else {
               alert('Invalid administrator credentials. Please try again.');
+              return;
             }
           }
         } else {
@@ -238,12 +242,35 @@
               return;
             }
             localStorage.setItem('currentUser', JSON.stringify({ role: 'user', email: user.email, name: user.name }));
-            alert(`Welcome back, ${user.name}!\nSuccessfully authenticated. Redirecting to your dashboard.`);
-            window.location.href = 'dashboard.html';
+            redirectUrl = 'dashboard.html';
+            welcomeName = user.name;
           } else {
             alert('Invalid email or password. Please try again.');
+            return;
           }
         }
+
+        // Hide form contents, show beautiful success popup card
+        document.getElementById('roleSelect').parentElement.style.display = 'none';
+        document.getElementById('lEmail').parentElement.style.display = 'none';
+        document.getElementById('lPass').parentElement.style.display = 'none';
+        document.querySelector('.login-card form button').style.display = 'none';
+        document.querySelector('.login-card div[style*="margin-top"]').style.display = 'none';
+        document.getElementById('portalLoginForm').style.display = 'none';
+        
+        // Show success card
+        const successCard = document.getElementById('successCard');
+        successCard.style.display = 'block';
+        
+        // Setup redirection trigger
+        document.getElementById('successBtn').addEventListener('click', () => {
+          window.location.href = redirectUrl;
+        });
+
+        // Trigger auto-redirect countdown
+        setTimeout(() => {
+          window.location.href = redirectUrl;
+        }, 2000);
       });
     });
   </script>

@@ -868,8 +868,16 @@ function initContactForm() {
       msgs.unshift(newMsg);
       localStorage.setItem('contactMessages', JSON.stringify(msgs));
 
-      alert('Message sent successfully! Support will email you back shortly.');
-      contactForm.reset();
+      // Hide contact form and headers
+      contactForm.style.display = 'none';
+      const heading = document.querySelector('.contact-form-container h2');
+      if (heading) heading.style.display = 'none';
+      const subheading = document.querySelector('.contact-form-container p.text-muted');
+      if (subheading) subheading.style.display = 'none';
+      
+      // Show success card
+      const successCard = document.getElementById('successCard');
+      if (successCard) successCard.style.display = 'block';
     }
   });
 }
