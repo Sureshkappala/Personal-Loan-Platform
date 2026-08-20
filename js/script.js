@@ -930,18 +930,20 @@ function initRealTimeInputValidation() {
 }
 
 
-// Page Preloader Fade-out
+// Page Preloader Fade-out (delay by 2 seconds)
 window.addEventListener('load', () => {
   const preloader = document.getElementById('preloader');
   if (preloader) {
-    preloader.classList.add('fade-out');
+    setTimeout(() => {
+      preloader.classList.add('fade-out');
+    }, 2000);
   }
 });
 
-// Fallback safety timeout (forces fadeout after 3s if any resources stall)
+// Fallback safety timeout (forces fadeout after 4s if any resources stall)
 setTimeout(() => {
   const preloader = document.getElementById('preloader');
   if (preloader && !preloader.classList.contains('fade-out')) {
     preloader.classList.add('fade-out');
   }
-}, 3000);
+}, 4000);
