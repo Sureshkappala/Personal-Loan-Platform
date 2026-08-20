@@ -1022,3 +1022,50 @@ setTimeout(() => {
 }, 4000);
 
 
+
+
+/* --- CUSTOM APEX LOANS ADDITIONS (BUG FIXES) --- */
+
+function initPasswordToggles() {
+  document.querySelectorAll('.password-toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const input = btn.previousElementSibling;
+      const icon = btn.querySelector('i');
+      if (!input || !icon) return;
+      
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+      } else {
+        input.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+      }
+    });
+  });
+}
+
+function initGlobalCtaRedirects() {
+  document.addEventListener('click', (e) => {
+    const target = e.target.closest('a, button');
+    if (!target) return;
+    
+    // Do not intercept header navigation or dashboard sidebar links
+    const isNav = target.closest('header') || target.closest('.nav-menu') || target.closest('.hamburger') || target.closest('.drawer-close') || target.closest('.db-sidebar') || target.closest('.db-mobile-header');
+    // Do not intercept login/register submission buttons
+    const isAuthSubmit = target.closest('#portalLoginForm') || target.closest('#portalRegisterForm');
+    
+    if (!isNav && !isAuthSubmit) {
+      const href = target.getAttribute('href') || '';
+      
+      // Redirect CTA buttons and apply button links on main public pages to 404 page
+      if (href && href !== 'index.html' && !href.startsWith('http') && !href.startsWith('#')) {
+        if (href.includes('apply.html') || target.classList.contains('btn')) {
+          e.preventDefault();
+          window.location.href = '404.html';
+        }
+      }
+    }
+  });
+}
