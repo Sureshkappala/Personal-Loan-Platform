@@ -2763,10 +2763,15 @@ header {
   font-weight: 700 !important;
 }
 
-/* Ensure outline highlights for cards and tables */
+/* Soft shadows for cards instead of border highlights */
 .loan-card, .benefit-card, .mv-card, .testimonial-card, .stat-card, .db-stat-card, .tracker-card {
-  border: 1px solid var(--border-color) !important;
-  box-shadow: var(--shadow-sm) !important;
+  border: none !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Highlight section division outlines on all pages */
+section {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
 }
 
 /* Prevent floating badge overlaps on mobile viewports */
@@ -2804,10 +2809,15 @@ header {
   font-weight: 700 !important;
 }
 
-/* Ensure outline highlights for cards and tables */
+/* Soft shadows for cards instead of border highlights */
 .loan-card, .benefit-card, .mv-card, .testimonial-card, .stat-card, .db-stat-card, .tracker-card {
-  border: 1px solid var(--border-color) !important;
-  box-shadow: var(--shadow-sm) !important;
+  border: none !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Highlight section division outlines on all pages */
+section {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
 }
 
 /* Prevent floating badge overlaps on mobile viewports */
@@ -2845,10 +2855,15 @@ header {
   font-weight: 700 !important;
 }
 
-/* Ensure outline highlights for cards and tables */
+/* Soft shadows for cards instead of border highlights */
 .loan-card, .benefit-card, .mv-card, .testimonial-card, .stat-card, .db-stat-card, .tracker-card {
-  border: 1px solid var(--border-color) !important;
-  box-shadow: var(--shadow-sm) !important;
+  border: none !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Highlight section division outlines on all pages */
+section {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
 }
 
 /* Prevent floating badge overlaps on mobile viewports */
