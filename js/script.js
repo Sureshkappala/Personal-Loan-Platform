@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initRealTimeInputValidation();
   initRippleEffect();
+  initPasswordToggles();
+  initGlobalCtaRedirects();
 });
 
 function initRippleEffect() {

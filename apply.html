@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Apply online for a secure personal loan. Complete our four-step wizard to check eligibility and submit your application.">
   <title>Apply for a Loan | Apex Loans</title>
-  <link rel="stylesheet" href="css/style-v4.css?v=5.5">
+  <link rel="stylesheet" href="css/style-v4.css?v=5.6">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     .eligibility-banner {
@@ -154,17 +154,17 @@
             <div class="form-grid">
               <div class="form-group">
                 <label for="appAge">Your Age (18-70)</label>
-                <input type="number" id="appAge" class="form-control validate-age" required placeholder="e.g. 28">
+                <input type="number" id="appAge" class="form-control validate-age" min="18" max="70" required placeholder="e.g. 28">
                 <span class="form-feedback"></span>
               </div>
               <div class="form-group">
                 <label for="appIncome">Net Monthly Take-Home Pay ($)</label>
-                <input type="number" id="appIncome" class="form-control validate-amount" required placeholder="e.g. 3500">
+                <input type="number" id="appIncome" class="form-control validate-amount" min="1" required placeholder="e.g. 3500">
                 <span class="form-feedback"></span>
               </div>
               <div class="form-group">
                 <label for="requestedAmount">Requested Amount ($)</label>
-                <input type="number" id="requestedAmount" class="form-control validate-amount" required placeholder="e.g. 10000">
+                <input type="number" id="requestedAmount" class="form-control validate-amount" min="1" required placeholder="e.g. 10000">
                 <span class="form-feedback"></span>
               </div>
               <div class="form-group">
@@ -225,7 +225,7 @@
               </div>
               <div class="form-group">
                 <label for="appPhone">Mobile Phone Number</label>
-                <input type="tel" id="appPhone" class="form-control validate-tel" required placeholder="555-123-4567">
+                <input type="tel" id="appPhone" class="form-control validate-tel" required placeholder="10-Digit Mobile">
                 <span class="form-feedback"></span>
               </div>
               <div class="form-group form-full">
