@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Get in touch with our customer support. Send a message, view our office hours, or find our location map details.">
   <title>Contact Us | Apex Loans</title>
-  <link rel="stylesheet" href="css/style-v4.css?v=7.0">
+  <link rel="stylesheet" href="css/style-v4.css?v=7.4">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
@@ -197,55 +197,58 @@
   <section class="section-padding" style="background-color: var(--primary-dark);">
     <div class="container">
       <div class="contact-grid">
-        <!-- Details & Map Card (Stackly Info Card Layout) -->
-        <div class="contact-info-container contact-info-card" style="background-color: var(--secondary-dark); border-radius: var(--border-radius-md); border: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; justify-content: space-between; box-shadow: var(--shadow-lg);">
-          <div>
-            <h2 style="font-size: 1.5rem; margin-bottom: 2rem; color: var(--text-light-white);">Get in Touch</h2>
+        <!-- Left Column: Details & Map -->
+        <div class="contact-details-column" style="display: flex; flex-direction: column; gap: 40px;">
+          <!-- Contact Details List (direct on background, no card wrapper) -->
+          <div class="contact-details-list">
+            <h2 style="font-size: 1.8rem; margin-bottom: 2rem; color: var(--text-light-white); font-weight: 700;">Get in Touch</h2>
             <ul style="list-style: none; padding: 0;">
               <li style="display: flex; gap: 15px; margin-bottom: 30px; align-items: flex-start;">
                 <div style="width: 48px; height: 48px; min-width: 48px; border-radius: 50%; background-color: rgba(255, 107, 53, 0.1); border: 1px solid rgba(255, 107, 53, 0.15); display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">📍</div>
-                <div>
+                <div style="flex: 1; min-width: 0;">
                   <h4 style="font-size: 1.05rem; color: var(--text-light-white); margin-bottom: 5px; font-weight:600;">Office Address</h4>
                   <p style="color: var(--text-muted-light); margin: 0; font-size: 0.95rem;">451 Plaza Boulevard, Suite 200, New York, NY 10016</p>
                 </div>
               </li>
               <li style="display: flex; gap: 15px; margin-bottom: 30px; align-items: flex-start;">
                 <div style="width: 48px; height: 48px; min-width: 48px; border-radius: 50%; background-color: rgba(255, 107, 53, 0.1); border: 1px solid rgba(255, 107, 53, 0.15); display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">📞</div>
-                <div>
+                <div style="flex: 1; min-width: 0;">
                   <h4 style="font-size: 1.05rem; color: var(--text-light-white); margin-bottom: 5px; font-weight:600;">Phone Support</h4>
                   <p style="color: var(--text-muted-light); margin: 0; font-size: 0.95rem;"><a href="tel:+18005552739" style="color: var(--text-light-white); text-decoration: none;">+1 (800) 555-APEX</a> (Toll-Free)</p>
                 </div>
               </li>
               <li style="display: flex; gap: 15px; margin-bottom: 30px; align-items: flex-start;">
                 <div style="width: 48px; height: 48px; min-width: 48px; border-radius: 50%; background-color: rgba(255, 107, 53, 0.1); border: 1px solid rgba(255, 107, 53, 0.15); display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">✉️</div>
-                <div>
+                <div style="flex: 1; min-width: 0;">
                   <h4 style="font-size: 1.05rem; color: var(--text-light-white); margin-bottom: 5px; font-weight:600;">Email Inquiry</h4>
                   <p style="color: var(--text-muted-light); margin: 0; font-size: 0.95rem;"><a href="mailto:support@apexloans.com" style="color: var(--text-light-white); text-decoration: none;">support@apexloans.com</a></p>
                 </div>
               </li>
               <li style="display: flex; gap: 15px; margin-bottom: 30px; align-items: flex-start;">
                 <div style="width: 48px; height: 48px; min-width: 48px; border-radius: 50%; background-color: rgba(255, 107, 53, 0.1); border: 1px solid rgba(255, 107, 53, 0.15); display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">🕒</div>
-                <div>
+                <div style="flex: 1; min-width: 0;">
                   <h4 style="font-size: 1.05rem; color: var(--text-light-white); margin-bottom: 5px; font-weight:600;">Operating Hours</h4>
                   <p style="color: var(--text-muted-light); margin: 0; font-size: 0.95rem;">Monday - Friday: 9:00 AM - 6:00 PM EST</p>
                 </div>
               </li>
             </ul>
           </div>
-
-          <!-- Embedded Map Container matching Reference Design -->
-          <div class="map-container" style="position: relative; border-radius: var(--border-radius-md); overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: var(--shadow-sm); aspect-ratio: 16/9; width: 100%; height: 260px; margin-top: 30px;">
-            <img src="assets/images/dark_map_mockup.jpg" alt="HQ Location Map" style="width: 100%; height: 100%; object-fit: cover;">
-            <a href="404.html" style="position: absolute; top: 12px; left: 12px; background-color: rgba(10, 25, 47, 0.85); border: 1px solid var(--accent-gold); border-radius: var(--border-radius-sm); padding: 6px 12px; font-size: 0.75rem; color: white; display: flex; align-items: center; gap: 6px; font-weight: 600; text-decoration: none; transition: var(--transition-fast);">
-              <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: var(--accent-gold);"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              <span>Open in Maps</span>
-            </a>
+          
+          <!-- Map Card Wrapper (separate card with border and background matching references) -->
+          <div class="contact-map-card">
+            <div class="map-container" style="position: relative; border-radius: var(--border-radius-sm); overflow: hidden; border: 1px solid rgba(255,255,255,0.1); aspect-ratio: 16/9; width: 100%; height: 260px;">
+              <img src="assets/images/dark_map_mockup.jpg" alt="HQ Location Map" style="width: 100%; height: 100%; object-fit: cover;">
+              <a href="404.html" style="position: absolute; top: 12px; left: 12px; background-color: rgba(10, 25, 47, 0.85); border: 1px solid var(--accent-gold); border-radius: var(--border-radius-sm); padding: 6px 12px; font-size: 0.75rem; color: white; display: flex; align-items: center; gap: 6px; font-weight: 600; text-decoration: none; transition: var(--transition-fast);">
+                <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: var(--accent-gold);"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                <span>Open in Maps</span>
+              </a>
+            </div>
           </div>
         </div>
 
         <!-- Contact Form Container -->
         <div class="contact-form-container">
-          <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-light-white);">Send a Message</h2>
+          <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-light-white); font-weight: 700;">Leave a Message</h2>
           <form id="contactForm" novalidate>
             <div class="form-group">
               <label for="cName" style="color: var(--text-light-white);">Full Name</label>
