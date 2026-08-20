@@ -2834,3 +2834,53 @@ header {
   overflow-y: auto !important;
   max-height: 100vh !important;
 }
+
+/* --- BUG TRACKER FIXES --- */
+
+/* Highlight step numbers and status circles contrast */
+.step-card .step-num {
+  background-color: var(--accent-gold) !important;
+  color: var(--primary-navy) !important;
+  border: 2px solid var(--accent-gold) !important;
+  font-weight: 700 !important;
+}
+
+/* Ensure outline highlights for cards and tables */
+.loan-card, .benefit-card, .mv-card, .testimonial-card, .stat-card, .db-stat-card, .tracker-card {
+  border: 1px solid var(--border-color) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+/* Prevent floating badge overlaps on mobile viewports */
+@media (max-width: 768px) {
+  .floating-stats-badge {
+    position: static !important;
+    margin: 1.5rem auto 0 auto !important;
+    width: fit-content !important;
+  }
+}
+
+/* Prevent back to home button overlaps on mobile */
+@media (max-width: 768px) {
+  .back-to-home {
+    position: static !important;
+    display: inline-flex !important;
+    margin: 20px auto 10px auto !important;
+    transform: none !important;
+  }
+}
+
+/* Make dashboard sidebar scrollable on smaller screens */
+.db-sidebar {
+  overflow-y: auto !important;
+  max-height: 100vh !important;
+}
+
+/* Style select dropdowns to match input fields perfectly */
+select.form-control {
+  padding-top: 0.65rem !important;
+  padding-bottom: 0.65rem !important;
+  height: auto !important;
+  cursor: pointer !important;
+  background-color: var(--neutral-light) !important;
+}
