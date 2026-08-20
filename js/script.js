@@ -947,3 +947,22 @@ setTimeout(() => {
     preloader.classList.add('fade-out');
   }
 }, 4000);
+
+// Global 404 Redirect Interceptor for Apply/Dashboard buttons
+document.addEventListener('click', (e) => {
+  const target = e.target.closest('a, button');
+  if (!target) return;
+  
+  const href = target.getAttribute('href');
+  if (href) {
+    const normalizedHref = href.toLowerCase();
+    if (
+      normalizedHref.includes('apply.html') || 
+      normalizedHref.includes('dashboard.html') || 
+      normalizedHref.includes('admin.html')
+    ) {
+      e.preventDefault();
+      window.location.href = '404.html';
+    }
+  }
+});
