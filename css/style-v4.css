@@ -2678,3 +2678,77 @@ body.dashboard-body {
     opacity: 1 !important;
   }
 }
+
+/* --- MICRO-INTERACTIONS & EFFECTS --- */
+
+/* Hero Float Animation */
+.hero-image img {
+  animation: hero-float 3.5s ease-in-out infinite alternate !important;
+  transition: transform 0.5s ease !important;
+}
+
+@keyframes hero-float {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-12px); }
+}
+
+/* Button Ripple & Hover Effects */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease !important;
+}
+
+.btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+.btn:active {
+  transform: translateY(0) !important;
+}
+
+.ripple {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple-effect 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple-effect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Card Hover + Scale Animation */
+.loan-card, .benefit-card, .mv-card, .testimonial-card, .stat-card, .db-stat-card, .tracker-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease, transform 0.8s ease !important;
+}
+
+.loan-card:hover, .benefit-card:hover, .mv-card:hover, .testimonial-card:hover, .stat-card:hover, .db-stat-card:hover, .tracker-card:hover {
+  transform: translateY(-8px) scale(1.03) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+/* Image Zoom Effect */
+.responsive-grid-2 img {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.responsive-grid-2 img:hover {
+  transform: scale(1.03) !important;
+}
+
+/* FAQ Icon Transition */
+.faq-toggle-icon {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Header Sticky Transitions */
+header {
+  transition: background-color 0.35s ease, padding 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease !important;
+}

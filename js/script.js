@@ -13,7 +13,30 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initScrollAnimations();
   initRealTimeInputValidation();
+  initRippleEffect();
 });
+
+function initRippleEffect() {
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.btn');
+    if (!btn) return;
+    
+    // Create ripple circle
+    const circle = document.createElement('span');
+    const diameter = Math.max(btn.clientWidth, btn.clientHeight);
+    const radius = diameter / 2;
+    
+    circle.style.width = circle.style.height = `${diameter}px`;
+    const rect = btn.getBoundingClientRect();
+    circle.style.left = `${e.clientX - rect.left - radius}px`;
+    circle.style.top = `${e.clientY - rect.top - radius}px`;
+    circle.classList.add('ripple');
+    
+    const prevRipple = btn.querySelector('.ripple');
+    if (prevRipple) prevRipple.remove();
+    btn.appendChild(circle);
+  });
+}
 
 /* ==========================================================================
    1. NAVBAR, NAVIGATION & RESPONSIVE MOBILE DRAWER
@@ -223,15 +246,19 @@ function calculateEMI(amount, rateYearly, tenureMonths) {
 }
 
 function updateDonutChart(principal, interest) {
-  const path = document.querySelector('.donut-circle-path');
-  const percentText = document.querySelector('.chart-center-percent');
+  const path = document.getElementById('emiChartPath') || document.querySelector('.donut-circle-path');
+  const percentText = document.getElementById('emiPercentText') || document.querySelector('.chart-center-percent');
   if (!path) return;
 
   const total = principal + interest;
   const interestPercent = total > 0 ? (interest / total) * 100 : 0;
-  const circumference = 314.159;
+  
+  // Calculate dynamic radius circumference
+  const r = parseFloat(path.getAttribute('r') || '54');
+  const circumference = 2 * Math.PI * r;
   const strokeDashoffset = circumference - (interestPercent / 100) * circumference;
 
+  path.style.transition = 'stroke-dashoffset 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
   path.style.strokeDasharray = `${circumference} ${circumference}`;
   path.style.strokeDashoffset = strokeDashoffset;
   
