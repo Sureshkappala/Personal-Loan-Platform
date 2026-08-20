@@ -75,6 +75,11 @@ a:hover {
   color: var(--accent-blue-hover);
 }
 
+html.no-scroll, body.no-scroll {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+
 /* Utilities */
 .container {
   width: 100%;
