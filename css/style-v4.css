@@ -189,7 +189,7 @@ header {
   z-index: 1000;
   transition: all var(--transition-normal);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 2px solid #FF6B35 !important;
 }
 
 header.scrolled {
@@ -2417,7 +2417,7 @@ body.dashboard-body {
   align-items: center;
   background: #0e1320;
   padding: 1rem 1.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 2px solid #FF6B35 !important;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -2913,5 +2913,25 @@ select.form-control {
   }
   .form-full {
     grid-column: span 1 !important;
+  }
+}
+
+/* Fix mobile navigation drawer text visibility and action buttons */
+@media (max-width: 768px) {
+  .nav-menu .nav-link {
+    color: var(--primary-navy) !important;
+  }
+  .nav-menu .nav-link:hover,
+  .nav-menu .nav-link.active {
+    color: var(--accent-blue) !important;
+  }
+  header .nav-actions-mobile .btn-outline {
+    border: 1.5px solid var(--primary-navy) !important;
+    color: var(--primary-navy) !important;
+    background-color: transparent !important;
+  }
+  header .nav-actions-mobile .btn-outline:hover {
+    background-color: var(--primary-navy) !important;
+    color: #ffffff !important;
   }
 }
