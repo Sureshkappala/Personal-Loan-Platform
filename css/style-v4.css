@@ -11992,3 +11992,19 @@ select.form-control {
     margin-top: -1.5rem !important;
   }
 }
+
+/* Style select dropdowns and options on dark pages (dashboards, contact) to match input fields */
+body.dashboard-body select.form-control,
+body.dark-nav select.form-control,
+.contact-form-container select.form-control {
+  background-color: #121824 !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dashboard-body select.form-control option,
+body.dark-nav select.form-control option,
+.contact-form-container select.form-control option {
+  background-color: #121824 !important;
+  color: #ffffff !important;
+}
