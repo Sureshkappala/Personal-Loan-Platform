@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Get in touch with our customer support. Send a message, view our office hours, or find our location map details.">
   <title>Contact Us | Apex Loans</title>
-  <link rel="stylesheet" href="css/style-v4.css?v=7.4">
+  <link rel="stylesheet" href="css/style-v4.css?v=7.5">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
@@ -202,85 +202,91 @@
           <!-- Contact Details List (direct on background, no card wrapper) -->
           <div class="contact-details-list">
             <h2 style="font-size: 1.8rem; margin-bottom: 2rem; color: var(--text-light-white); font-weight: 700;">Get in Touch</h2>
-            <ul style="list-style: none; padding: 0;">
-              <li style="display: flex; gap: 15px; margin-bottom: 30px; align-items: flex-start;">
-                <div style="width: 48px; height: 48px; min-width: 48px; border-radius: 50%; background-color: rgba(255, 107, 53, 0.1); border: 1px solid rgba(255, 107, 53, 0.15); display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">📍</div>
-                <div style="flex: 1; min-width: 0;">
-                  <h4 style="font-size: 1.05rem; color: var(--text-light-white); margin-bottom: 5px; font-weight:600;">Office Address</h4>
-                  <p style="color: var(--text-muted-light); margin: 0; font-size: 0.95rem;">451 Plaza Boulevard, Suite 200, New York, NY 10016</p>
+            <div class="contact-info-list">
+              <div class="contact-info-item">
+                <div class="cii-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div class="cii-content">
+                  <h4>Office Address</h4>
+                  <p>451 Plaza Boulevard, Suite 200, New York, NY 10016</p>
                 </div>
-              </li>
-              <li style="display: flex; gap: 15px; margin-bottom: 30px; align-items: flex-start;">
-                <div style="width: 48px; height: 48px; min-width: 48px; border-radius: 50%; background-color: rgba(255, 107, 53, 0.1); border: 1px solid rgba(255, 107, 53, 0.15); display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">📞</div>
-                <div style="flex: 1; min-width: 0;">
-                  <h4 style="font-size: 1.05rem; color: var(--text-light-white); margin-bottom: 5px; font-weight:600;">Phone Support</h4>
-                  <p style="color: var(--text-muted-light); margin: 0; font-size: 0.95rem;"><a href="tel:+18005552739" style="color: var(--text-light-white); text-decoration: none;">+1 (800) 555-APEX</a> (Toll-Free)</p>
+              </div>
+              <div class="contact-info-item">
+                <div class="cii-icon"><i class="fa-solid fa-phone"></i></div>
+                <div class="cii-content">
+                  <h4>Phone Support</h4>
+                  <p><a href="tel:+18005552739">+1 (800) 555-APEX</a> (Toll-Free)</p>
                 </div>
-              </li>
-              <li style="display: flex; gap: 15px; margin-bottom: 30px; align-items: flex-start;">
-                <div style="width: 48px; height: 48px; min-width: 48px; border-radius: 50%; background-color: rgba(255, 107, 53, 0.1); border: 1px solid rgba(255, 107, 53, 0.15); display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">✉️</div>
-                <div style="flex: 1; min-width: 0;">
-                  <h4 style="font-size: 1.05rem; color: var(--text-light-white); margin-bottom: 5px; font-weight:600;">Email Inquiry</h4>
-                  <p style="color: var(--text-muted-light); margin: 0; font-size: 0.95rem;"><a href="mailto:support@apexloans.com" style="color: var(--text-light-white); text-decoration: none;">support@apexloans.com</a></p>
+              </div>
+              <div class="contact-info-item">
+                <div class="cii-icon"><i class="fa-solid fa-envelope"></i></div>
+                <div class="cii-content">
+                  <h4>Email Inquiry</h4>
+                  <p><a href="mailto:support@apexloans.com">support@apexloans.com</a></p>
                 </div>
-              </li>
-              <li style="display: flex; gap: 15px; margin-bottom: 30px; align-items: flex-start;">
-                <div style="width: 48px; height: 48px; min-width: 48px; border-radius: 50%; background-color: rgba(255, 107, 53, 0.1); border: 1px solid rgba(255, 107, 53, 0.15); display: flex; align-items: center; justify-content: center; font-size: 1.25rem;">🕒</div>
-                <div style="flex: 1; min-width: 0;">
-                  <h4 style="font-size: 1.05rem; color: var(--text-light-white); margin-bottom: 5px; font-weight:600;">Operating Hours</h4>
-                  <p style="color: var(--text-muted-light); margin: 0; font-size: 0.95rem;">Monday - Friday: 9:00 AM - 6:00 PM EST</p>
+              </div>
+              <div class="contact-info-item">
+                <div class="cii-icon"><i class="fa-solid fa-clock"></i></div>
+                <div class="cii-content">
+                  <h4>Operating Hours</h4>
+                  <p>Monday - Friday: 9:00 AM - 6:00 PM EST</p>
                 </div>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
           
-          <!-- Map Card Wrapper (separate card with border and background matching references) -->
+          <!-- Map Card Wrapper (separate card with dark google map iframe) -->
           <div class="contact-map-card">
-            <div class="map-container" style="position: relative; border-radius: var(--border-radius-sm); overflow: hidden; border: 1px solid rgba(255,255,255,0.1); aspect-ratio: 16/9; width: 100%; height: 260px;">
-              <img src="assets/images/dark_map_mockup.jpg" alt="HQ Location Map" style="width: 100%; height: 100%; object-fit: cover;">
-              <a href="404.html" style="position: absolute; top: 12px; left: 12px; background-color: rgba(10, 25, 47, 0.85); border: 1px solid var(--accent-gold); border-radius: var(--border-radius-sm); padding: 6px 12px; font-size: 0.75rem; color: white; display: flex; align-items: center; gap: 6px; font-weight: 600; text-decoration: none; transition: var(--transition-fast);">
-                <svg viewBox="0 0 24 24" style="width: 12px; height: 12px; fill: var(--accent-gold);"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                <span>Open in Maps</span>
-              </a>
-            </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.427847426188!2d-73.97491368459388!3d40.75797877932692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258ffa75ab289%3A0x1d21124d5ba7b2c0!2sPlaza%20St%2C%20Brooklyn%2C%20NY!5e0!3m2!1sen!2sus!4v1655656565656!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Apex Loans HQ Location Map"></iframe>
           </div>
         </div>
 
         <!-- Contact Form Container -->
         <div class="contact-form-container">
           <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-light-white); font-weight: 700;">Leave a Message</h2>
-          <form id="contactForm" novalidate>
-            <div class="form-group">
-              <label for="cName" style="color: var(--text-light-white);">Full Name</label>
-              <input type="text" id="cName" class="form-control validate-name" required placeholder="Your Full Name">
+          <form id="contactForm" novalidate style="display: flex; flex-direction: column; gap: 1.2rem;">
+            <div class="form-group" style="display: flex; flex-direction: column; gap: 0.4rem;">
+              <label for="cName" style="color: var(--text-light-white); font-size: 0.9rem; font-weight: 500;">Full Name</label>
+              <div class="form-control-wrap" style="position: relative; width: 100%;">
+                <i class="fa-solid fa-user" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted-light); font-size: 0.9rem;"></i>
+                <input type="text" id="cName" class="form-control validate-name" required placeholder="John Doe" style="width: 100%; padding-left: 2.2rem !important;">
+              </div>
               <span class="form-feedback"></span>
             </div>
 
-            <div class="form-group">
-              <label for="cEmail" style="color: var(--text-light-white);">Email Address</label>
-              <input type="email" id="cEmail" class="form-control" required placeholder="yourname@email.com">
+            <div class="form-group" style="display: flex; flex-direction: column; gap: 0.4rem;">
+              <label for="cEmail" style="color: var(--text-light-white); font-size: 0.9rem; font-weight: 500;">Email Address</label>
+              <div class="form-control-wrap" style="position: relative; width: 100%;">
+                <i class="fa-solid fa-envelope" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted-light); font-size: 0.9rem;"></i>
+                <input type="email" id="cEmail" class="form-control" required placeholder="john@example.com" style="width: 100%; padding-left: 2.2rem !important;">
+              </div>
               <span class="form-feedback"></span>
             </div>
 
-            <div class="form-group">
-              <label for="cPhone" style="color: var(--text-light-white);">Phone Number</label>
-              <input type="tel" id="cPhone" class="form-control validate-phone" required placeholder="10-Digit Mobile">
+            <div class="form-group" style="display: flex; flex-direction: column; gap: 0.4rem;">
+              <label for="cPhone" style="color: var(--text-light-white); font-size: 0.9rem; font-weight: 500;">Phone Number</label>
+              <div class="form-control-wrap" style="position: relative; width: 100%;">
+                <i class="fa-solid fa-phone" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted-light); font-size: 0.9rem;"></i>
+                <input type="tel" id="cPhone" class="form-control validate-phone" required placeholder="123-456-7890" style="width: 100%; padding-left: 2.2rem !important;">
+              </div>
               <span class="form-feedback"></span>
             </div>
 
-            <div class="form-group">
-              <label for="cSubject" style="color: var(--text-light-white);">Subject / Topic</label>
-              <input type="text" id="cSubject" class="form-control" required placeholder="What can we help you with?">
+            <div class="form-group" style="display: flex; flex-direction: column; gap: 0.4rem;">
+              <label for="cSubject" style="color: var(--text-light-white); font-size: 0.9rem; font-weight: 500;">Message Subject</label>
+              <div class="form-control-wrap" style="position: relative; width: 100%;">
+                <i class="fa-solid fa-circle-question" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted-light); font-size: 0.9rem;"></i>
+                <input type="text" id="cSubject" class="form-control" required placeholder="Feedback / Audit Inquiry" style="width: 100%; padding-left: 2.2rem !important;">
+              </div>
               <span class="form-feedback"></span>
             </div>
 
-            <div class="form-group">
-              <label for="cMessage" style="color: var(--text-light-white);">Detailed Query</label>
-              <textarea id="cMessage" class="form-control" required rows="4" placeholder="Enter message details..."></textarea>
+            <div class="form-group" style="display: flex; flex-direction: column; gap: 0.4rem;">
+              <label for="cMessage" style="color: var(--text-light-white); font-size: 0.9rem; font-weight: 500;">Message Details</label>
+              <textarea id="cMessage" class="form-control" required rows="4" placeholder="Type your message here..."></textarea>
               <span class="form-feedback"></span>
             </div>
 
-            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem; padding: 12px; font-weight:700;">Submit Message</button>
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">Send Message <i class="fa-solid fa-paper-plane"></i></button>
           </form>
         </div>
       </div>

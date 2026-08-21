@@ -11880,12 +11880,83 @@ select.form-control {
   }
 }
 
-/* Center-align contact detail rows vertically on mobile to prevent text truncation */
+
+
+/* Contact Page Layout Containers Styling (Decor Store Match) */
+.contact-map-card, .contact-form-container {
+  background-color: var(--secondary-dark) !important;
+  border: 1px solid #FF6B35 !important;
+  border-radius: var(--border-radius-md) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+.contact-map-card {
+  padding: 0 !important;
+  overflow: hidden !important;
+  min-height: 320px;
+}
+
+.contact-map-card iframe {
+  width: 100%;
+  height: 320px;
+  border: 0;
+  opacity: 0.85;
+  filter: invert(90%) hue-rotate(180deg); /* Dark themed maps filter */
+  display: block;
+}
+
+.contact-form-container {
+  padding: 40px !important;
+}
+
 @media (max-width: 768px) {
-  .contact-details-list ul li {
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    gap: 12px !important;
+  .contact-form-container {
+    padding: 24px 16px !important;
   }
+}
+
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.contact-info-item {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+}
+
+.cii-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--border-radius-sm);
+  background: rgba(255, 107, 53, 0.1);
+  border: 1px solid rgba(255, 107, 53, 0.15);
+  color: var(--accent-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.cii-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.cii-content h4 {
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+  color: var(--text-light-white) !important;
+  font-weight: 600;
+}
+
+.cii-content p, .cii-content a {
+  font-size: 0.9rem;
+  color: var(--text-muted-light) !important;
+  text-decoration: none;
 }
