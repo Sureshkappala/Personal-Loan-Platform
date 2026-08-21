@@ -11960,3 +11960,11 @@ select.form-control {
   color: var(--text-muted-light) !important;
   text-decoration: none;
 }
+
+/* Fix dashboard horizontal clipping on mobile/tablet viewports */
+@media (max-width: 992px) {
+  .db-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+}
